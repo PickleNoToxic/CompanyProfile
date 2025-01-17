@@ -34,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <!-- modal image -->
     <div id="modal-image" class="hidden w-screen h-screen bg-black/95 fixed top-0 left-0 z-50 font-poppins flex justify-center text-white">
         <div class="w-full max-h-[100vh] overflow-y-scroll flex flex-col justify-start items-center py-10 relative" style="-ms-overflow-style: none; scrollbar-width: none;">
@@ -49,9 +48,7 @@
             </div>
         </div>
     </div>
-
     @include('public.includes.hero')
-
     <main class="w-screen flex flex-col">
         <div class="relative w-[119.06px] h-[102.54px]">
             <div class="absolute inset-0 flex justify-center items-center">

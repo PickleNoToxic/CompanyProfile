@@ -22,7 +22,7 @@
         @vite('resources/css/app.css')
     </head>
     <body>
-        @include('public.includes.navbar')
+        {{-- @include('public.includes.navbar') --}}
 
         <!-- content -->
         @yield('container')

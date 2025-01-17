@@ -44,6 +44,18 @@ class PublicController extends Controller
             "galleries" => $galleries,
             "wa" => $wa,
         ]);
+
+    }
+    public function home()
+    {
+        $wa = Contact::first();
+        return view('public.pages.home',[
+            "title" => "Company Profile",
+            "wa" => $wa,
+
+        ]);
+        
+
     }
 
     public function contact()
@@ -92,7 +104,7 @@ class PublicController extends Controller
     {
         $wa = Contact::first();
         $datas = CategoryFacility::with('facilities')->where('is_active', 1)->get();
-        
+
         return view('public.pages.facilities.index', [
             "title" => "Fasilitas - Transformer Center",
             "datas" => $datas,
@@ -127,10 +139,10 @@ class PublicController extends Controller
     {
         $wa = Contact::first();
         $datas = Post::where('is_active', 1)
-                    ->where('id', '!=', $post->id)
-                    ->inRandomOrder()
-                    ->take(3)
-                    ->get();
+            ->where('id', '!=', $post->id)
+            ->inRandomOrder()
+            ->take(3)
+            ->get();
 
         return view('public.pages.posts.detail', [
             "title" => "Detail Artikel - Transformer Center",

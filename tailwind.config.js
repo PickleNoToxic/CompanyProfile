@@ -30,6 +30,7 @@ export default {
             'xxs': '10px',
         },
         fontFamily: {
+           poppins: ['Poppins', 'sans-serif'],
           inter: ['Inter']
         }
     },
