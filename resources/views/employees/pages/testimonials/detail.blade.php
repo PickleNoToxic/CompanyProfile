@@ -85,7 +85,7 @@
                                                 <label for="company">Company</label>
                                                 <input type="text"
                                                     class="form-control @error('company') is-invalid @enderror"
-                                                    id="company" name="company" placeholder="Company" required
+                                                    id="company" name="company" placeholder="Company"
                                                     value="{{ old('company', $data->company) }}">
                                                 @error('company')
                                                     <div class="invalid-feedback">

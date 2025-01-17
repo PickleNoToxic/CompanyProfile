@@ -40,6 +40,18 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route("clients.index") }}" class="nav-link {{ Request::is('secretgate/clients*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Client Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("companies.index") }}" class="nav-link {{ Request::is('secretgate/companies*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Company Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route("heroes.index") }}" class="nav-link {{ Request::is('secretgate/heroes*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Hero Section</p>
