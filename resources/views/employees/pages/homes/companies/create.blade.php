@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin-home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('companies.index') }}">Companies</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('companies.index') }}">companies</a></li>
                             <li class="breadcrumb-item active">{{ $menu }}</li>
                         </ol>
                     </div><!-- /.col -->
@@ -64,12 +64,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="company">Company</label>
+                                                <label for="url">Url</label>
                                                 <input type="text"
-                                                    class="form-control @error('company') is-invalid @enderror"
-                                                    id="company" name="company" placeholder="Company"
-                                                    value="{{ old('company') }}">
-                                                @error('company')
+                                                    class="form-control @error('url') is-invalid @enderror"
+                                                    id="url" name="url" placeholder="Url"
+                                                    value="{{ old('url') }}">
+                                                @error('url')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>

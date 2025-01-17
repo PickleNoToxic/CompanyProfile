@@ -31,6 +31,23 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+                    {{-- thumbnail --}}
+                    <div class="col-12">
+                        <div class="card card-info">
+                            <div class="card-header">
+                                <h3 class="card-title">Photo</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row d-flex justify-content-center align-items-center">
+                                    @if ($data->photo)
+                                        <img src="{{ asset('storage/' . $data->photo) }}" class="img-fluid mb-2" alt="{{ $data->name }}" style="max-height: 300px; width: auto;" />
+                                    @endif
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
 
                     <!-- bottom column -->
                     <div class="col-12">
@@ -42,10 +59,11 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form
-                                action="{{ route("companies.store") }}"
+                                action="{{ route("companies.update", $data) }}"
                                 method="POST" 
                                 enctype="multipart/form-data">
                                 @csrf
+                                @method('PUT')
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -53,8 +71,8 @@
                                                 <label for="name">Name</label>
                                                 <input type="text"
                                                     class="form-control @error('name') is-invalid @enderror"
-                                                    id="name" name="name" placeholder="Name" required
-                                                    value="{{ old('name') }}">
+                                                    id="name" name="name" placeholder="name" required
+                                                    value="{{ old('name', $data->name) }}">
                                                 @error('name')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -64,12 +82,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="company">Company</label>
+                                                <label for="url">Url</label>
                                                 <input type="text"
-                                                    class="form-control @error('company') is-invalid @enderror"
-                                                    id="company" name="company" placeholder="Company"
-                                                    value="{{ old('company') }}">
-                                                @error('company')
+                                                    class="form-control @error('url') is-invalid @enderror"
+                                                    id="url" name="url" placeholder="Url"
+                                                    value="{{ old('url', $data->url) }}">
+                                                @error('url')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -79,7 +97,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <input id="x" type="hidden" name="description">
+                                        <input id="x" type="hidden" name="description" value="{{ old('description', $data->description) }}">
                                         <trix-editor input="x"></trix-editor>
                                     </div>
                                     <div class="row">
@@ -88,8 +106,8 @@
                                                 <label for="is_active">Status</label>
                                                 <select class="form-control @error('is_active') is-invalid @enderror" id="is_active" name="is_active" required>
                                                     <option value="">Choose a status</option>
-                                                    <option value="1" {{ old('is_active') == '1' ? 'selected' : '' }}>Active</option>
-                                                    <option value="0" {{ old('is_active') == '0' ? 'selected' : '' }}>Inactive</option>
+                                                    <option value="1" {{ old('is_active', $data->is_active) == '1' ? 'selected' : '' }}>Active</option>
+                                                    <option value="0" {{ old('is_active', $data->is_active) == '0' ? 'selected' : '' }}>Inactive</option>
                                                 </select>
                                                 @error('is_active')
                                                     <div class="invalid-feedback">
@@ -100,7 +118,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="photo">Photo (250x250)</label>
+                                                <label for="photo">New Photo (250x250)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="photo" name="photo" accept='.png,.jpg,.jpeg'>
@@ -121,7 +139,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Update</button>
                                     <a href={{ route("companies.index") }} class="btn btn-danger">Back</a>
                                 </div>
                             </form>

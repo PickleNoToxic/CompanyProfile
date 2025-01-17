@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facility;
 use App\Models\MasterWeb;
-use App\Models\OurGallery;
-use App\Models\Post;
-use App\Models\Program;
+use App\Models\Company;
+use App\Models\Client;
+use App\Models\Director;
+use App\Models\Testimonial;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,16 +17,16 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $programs = Program::where('is_active', 1)->count();
-        $galleries = OurGallery::count();
-        $posts = Post::where('is_active', 1)->count();
-        $facilities = Facility::count();
+        $clients = Client::where('is_active', 1)->count();
+        $companies = Company::where('is_active', 1)->count();
+        $directors = Director::where('is_active', 1)->count();
+        $testimonials = Testimonial::where('is_active', 1)->count();
         return view('employees.pages.index', [
             "menu" => "Dashboard",
-            "programs" => $programs,
-            "galleries" => $galleries,
-            "posts" => $posts,
-            "facilities" => $facilities,
+            "clients" => $clients,
+            "companies" => $companies,
+            "directors" => $directors,
+            "testimonials" => $testimonials,
         ]);
     }
 

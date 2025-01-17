@@ -62,7 +62,6 @@ class ContactController extends Controller
         $rules = [
             'address' => 'required',
             'phone' => 'required',
-            'website' => 'required',
             'email' => 'required',
             'map' => 'required',
         ];

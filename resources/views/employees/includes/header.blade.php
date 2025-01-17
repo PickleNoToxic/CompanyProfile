@@ -41,10 +41,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 {{-- <span class="dropdown-item dropdown-header">15 Notifications</span> --}}
-                <div class="dropdown-divider"></div>
+                <!-- <div class="dropdown-divider"></div>
                 <a href="{{ route("admin-profile") }}" class="dropdown-item">
                     <i class="fas fa-user mr-2"></i> Profile
-                </a>
+                </a> -->
                 <div class="dropdown-divider"></div>
                 <form action={{ route("admin-logout") }} method="get">
                     @csrf

@@ -13,18 +13,17 @@ return new class extends Migration
     {
         Schema::create('master_webs', function (Blueprint $table) {
             $table->id();
-            $table->string('about_title');
-            $table->text('about_description');
-            $table->string('about_thumbnail')->nullable();
-            $table->string('about_video')->nullable();
-            $table->string('value_title');
-            $table->text('value_description')->nullable();
-            $table->string('value_photo1')->nullable();
-            $table->string('value_photo2')->nullable();
-            $table->string('value_photo3')->nullable();
-            $table->string('statistik_title');
-            $table->string('benefit_title');
-            $table->string('order')->nullable();
+            $table->string('title');
+            $table->string('hero_background')->nullable();
+            $table->string('company_icon')->nullable();
+            $table->text('description');
+            $table->string('companies_title');
+            $table->string('motto');
+            $table->string('directors_title');
+            $table->string('testimonials_title');
+            $table->text('testimonials_description');
+            $table->string('testimonials_background')->nullable();
+            $table->string('contact_us_title');
             $table->timestamps();
         });
     }

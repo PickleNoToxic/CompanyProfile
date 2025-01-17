@@ -61,84 +61,45 @@ class MasterWebController extends Controller
     public function update(Request $request, MasterWeb $master)
     {
         $rules = [
-            'about_thumbnail' => 'image|file',
-            'value_photo1' => 'image|file',
-            'value_photo2' => 'image|file',
-            'value_photo3' => 'image|file',
-            'order' => 'image|file',
-            'statistik_photo' => 'image|file',
-            'testimonial_photo' => 'image|file',
+            'hero_background' => 'image|file',
+            'company_icon' => 'image|file',
+            'testimonial_background' => 'image|file',
         ];
 
         $validateData = $request->validate($rules);
 
-        $validateData['about_title'] = $request->about_title ?? $master->about_title;
-        $validateData['about_description'] = $request->about_description ?? $master->about_description;
-        $validateData['about_video'] = $request->about_video ?? $master->about_video;
-        $validateData['value_title'] = $request->value_title ?? $master->value_title;
-        $validateData['value_description'] = $request->value_description ?? $master->value_description;
-        $validateData['statistik_title'] = $request->statistik_title ?? $master->statistik_title;
-        $validateData['benefit_title'] = $request->benefit_title ?? $master->benefit_title;
-        $validateData['program_title'] = $request->program_title ?? $master->program_title;
-        $validateData['testimonial_title'] = $request->testimonial_title ?? $master->testimonial_title;
-        $validateData['gallery_title'] = $request->gallery_title ?? $master->gallery_title;
+        $validateData['title'] = $request->title ?? $master->title;
+        $validateData['description'] = $request->description ?? $master->description;
+        $validateData['companies_title'] = $request->companies_title ?? $master->companies_title;
+        $validateData['motto'] = $request->motto ?? $master->motto;
+        $validateData['directors_title'] = $request->directors_title ?? $master->directors_title;
+        $validateData['testimonials_title'] = $request->testimonials_title ?? $master->testimonials_title;
+        $validateData['testimonials_description'] = $request->testimonials_description ?? $master->testimonials_description;
+        $validateData['contact_us_title'] = $request->contact_us_title ?? $master->contact_us_title;
 
-        if ($request->file('about_thumbnail')) {
-            if ($master->about_thumbnail) {
-                Storage::delete($master->about_thumbnail);
+        if ($request->file('hero_background')) {
+            if ($master->hero_background) {
+                Storage::delete($master->hero_background);
             }
 
-            $validateData['about_thumbnail'] = $request->file('about_thumbnail')->store('homes');
+            $validateData['hero_background'] = $request->file('hero_background')->store('homes');
         }
 
-        if ($request->file('value_photo1')) {
-            if ($master->value_photo1) {
-                Storage::delete($master->value_photo1);
+        if ($request->file('company_icon')) {
+            if ($master->company_icon) {
+                Storage::delete($master->company_icon);
             }
 
-            $validateData['value_photo1'] = $request->file('value_photo1')->store('homes');
+            $validateData['company_icon'] = $request->file('company_icon')->store('homes');
         }
 
-        if ($request->file('value_photo2')) {
-            if ($master->value_photo2) {
-                Storage::delete($master->value_photo2);
+        if ($request->file('testimonials_background')) {
+            if ($master->testimonials_background) {
+                Storage::delete($master->testimonials_background);
             }
 
-            $validateData['value_photo2'] = $request->file('value_photo2')->store('homes');
+            $validateData['testimonials_background'] = $request->file('testimonials_background')->store('homes');
         }
-
-        if ($request->file('value_photo3')) {
-            if ($master->value_photo3) {
-                Storage::delete($master->value_photo3);
-            }
-
-            $validateData['value_photo3'] = $request->file('value_photo3')->store('homes');
-        }
-
-        if ($request->file('order')) {
-            if ($master->order) {
-                Storage::delete($master->order);
-            }
-
-            $validateData['order'] = $request->file('order')->store('homes');
-        }
-
-        if ($request->file('statistik_photo')) {
-            if ($master->statistik_photo) {
-                Storage::delete($master->statistik_photo);
-            }
-
-            $validateData['statistik_photo'] = $request->file('statistik_photo')->store('homes');
-        }
-
-        if ($request->file('testimonial_photo')) {
-            if ($master->testimonial_photo) {
-                Storage::delete($master->testimonial_photo);
-            }
-
-            $validateData['testimonial_photo'] = $request->file('testimonial_photo')->store('homes');
-        }
-
 
         $result = MasterWeb::where('id', $master->id)->update($validateData);
 

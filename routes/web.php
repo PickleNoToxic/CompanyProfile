@@ -18,6 +18,9 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SosialMediaController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DirectorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,4 +89,8 @@ Route::prefix('secretgate')
         Route::resource('/facility/categories', CategoryFacilityController::class);
         Route::resource('/facility/facilities', FacilityController::class);
         Route::resource('/faqs', FaqController::class);
+
+        Route::resource('/clients', ClientController::class);
+        Route::resource('/companies', CompanyController::class);
+        Route::resource('/directors', DirectorController::class);
 });

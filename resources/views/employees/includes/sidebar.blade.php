@@ -40,6 +40,24 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="{{ route("clients.index") }}" class="nav-link {{ Request::is('secretgate/clients*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Client Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("companies.index") }}" class="nav-link {{ Request::is('secretgate/companies*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Company Section</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route("directors.index") }}" class="nav-link {{ Request::is('secretgate/directors*') ? 'active' : ''}}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Director Section</p>
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
                             <a href="{{ route("heroes.index") }}" class="nav-link {{ Request::is('secretgate/heroes*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Hero Section</p>
@@ -68,7 +86,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Benefit Section</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="{{ route("testimonials.index") }}" class="nav-link {{ Request::is('secretgate/testimonials*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
@@ -83,23 +101,23 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{ route("programs.index") }}" class="nav-link {{ Request::is('secretgate/programs', 'secretgate/programs/*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-award"></i>
                         <p>
                             Programs
                         </p>
                     </a>
-                </li> 
-                <li class="nav-item">
+                </li>  -->
+                <!-- <li class="nav-item">
                     <a href="{{ route("posts.index") }}" class="nav-link {{ Request::is('secretgate/posts', 'secretgate/posts/*') ? 'active' : ''}}">
                         <i class="nav-icon fa fa-blog"></i>
                         <p>
                             Posts
                         </p>
                     </a>
-                </li> 
-                <li class="nav-item">
+                </li>  -->
+                <!-- <li class="nav-item">
                     <a 
                         href="#"
                         class="nav-link 
@@ -142,7 +160,7 @@
                             Gallery Page
                         </p>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="nav-item">
                     <a 
@@ -154,7 +172,7 @@
                             ? 'active' : ''}}">
                         <i class="nav-icon fa fa-phone"></i>
                         <p>
-                            Contact Page
+                            Contact Detail
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -168,19 +186,19 @@
                         <li class="nav-item">
                             <a href="{{ route("sosmeds.index") }}" class="nav-link {{ Request::is('secretgate/sosmeds*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Sosial Media</p>
+                                <p>Social Media</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ route("partners.index") }}" class="nav-link {{ Request::is('secretgate/partners*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Partner</p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 
-                @can('superadmin')
+                <!-- @can('superadmin')
                     <li class="nav-item">
                         <a href="{{ route("admin-employees") }}" class="nav-link {{ Request::is('secretgate/employees', 'secretgate/employees/*') ? 'active' : ''}}">
                             <i class="nav-icon fas fa-users"></i>
@@ -189,7 +207,7 @@
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endcan -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
