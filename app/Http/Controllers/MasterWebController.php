@@ -93,12 +93,12 @@ class MasterWebController extends Controller
             $validateData['company_icon'] = $request->file('company_icon')->store('homes');
         }
 
-        if ($request->file('testimonial_background')) {
-            if ($master->testimonial_background) {
-                Storage::delete($master->testimonial_background);
+        if ($request->file('testimonials_background')) {
+            if ($master->testimonials_background) {
+                Storage::delete($master->testimonials_background);
             }
 
-            $validateData['testimonial_background'] = $request->file('testimonial_background')->store('homes');
+            $validateData['testimonials_background'] = $request->file('testimonials_background')->store('homes');
         }
 
         $result = MasterWeb::where('id', $master->id)->update($validateData);

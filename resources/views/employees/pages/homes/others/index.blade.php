@@ -63,11 +63,11 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        @if ($data->testimonial_background)
+                                        @if ($data->testimonials_background)
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="testimonial_label">Testimonial Background</label>
-                                                    <img src="{{ asset('storage/' . $data->testimonial_background) }}"
+                                                    <label for="testimonial_label">Testimonials Background</label>
+                                                    <img src="{{ asset('storage/' . $data->testimonials_background) }}"
                                                         class="img-fluid mb-3 col-sm-5 d-block">
                                                 </div>
                                             </div>
@@ -236,14 +236,14 @@
                                                 <label for="testimonial_label">Testimonial Background (2460x952)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="testimonial_background" name="testimonial_background" accept='.png,.jpg,.jpeg'>
-                                                        <label class="custom-file-label" for="testimonial_background">Choose File</label>
+                                                        <input type="file" class="custom-file-input" id="testimonials_background" name="testimonials_background" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="testimonials_background">Choose File</label>
                                                     </div>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">Upload</span>
                                                     </div>
                                                 </div>
-                                                @error('testimonial_background')
+                                                @error('testimonials_background')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -279,9 +279,9 @@
             document.querySelector('label[for="company_icon"]').textContent = fileName;
         });
 
-        document.querySelector('#testimonial_background').addEventListener('change', function () {
+        document.querySelector('#testimonials_background').addEventListener('change', function () {
             const fileName = this.files[0]?.name || 'Choose File';
-            document.querySelector('label[for="testimonial_background"]').textContent = fileName;
+            document.querySelector('label[for="testimonials_background"]').textContent = fileName;
         });
 
         document.querySelector('#hero_background').addEventListener('change', function () {
