@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    scroll-behavior: smooth !important;
+}
+
+body {
+	@apply bg-whitePrimary font-inter flex flex-col justify-center;
+}
+
+* {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    scroll-behavior: smooth;
+    scrollbar-width: none !important;
+
+    /* menghilangkan scroll */
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: transparent transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 0;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: transparent;
+    }
+}
+
+.bg-gradient-primary {
+    @apply bg-gradient-to-r from-bluePrimary to-greenSecondary;
+}
+
+.gradient-primary-opactiy {
+	@apply bg-gradient-to-r from-bluePrimary/90 to-greenSecondary/90;
+}
+
+.text-gradient-primary {
+    @apply text-transparent bg-gradient-to-r from-bluePrimary to-greenSecondary bg-clip-text;
+}
+
+.text-shadow {
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-stroke {
+	-webkit-text-stroke:2px white !important;
+}
+
+.box-shadow-white {
+	box-shadow: -6px -4px 12px -3px rgba(255,255,255,0.75), 6px 4px 12px -3px rgba(0,0,0,0.1);
+	-webkit-box-shadow: -6px -4px 12px -3px rgba(255,255,255,0.75), 6px 4px 12px -3px rgba(0,0,0,0.1);
+	-moz-box-shadow: -6px -4px 12px -3px rgba(255,255,255,0.75), 6px 4px 12px -3px rgba(0,0,0,0.1);
+}
+
+.horizontal-scroll {
+    overflow-x: scroll;
+    scrollbar-color: none;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.grayscale-image {
+    filter: grayscale(1);
+}
+
+.grayscale-image:hover {
+    filter: grayscale(0);
+}
+
