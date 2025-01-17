@@ -30,14 +30,14 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{ $programs }}</h3>
+                                <h3>{{ $clients }}</h3>
 
-                                <p>Programs</p>
+                                <p>Clients</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-award"></i>
                             </div>
-                            <a href="{{ route("programs.index") }}" class="small-box-footer">More info <i
+                            <a href="{{ route("clients.index") }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -46,14 +46,13 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>{{ $galleries }}</h3>
-
-                                <p>Photo Galleries</p>
+                                <h3>{{ $companies }}</h3>
+                                <p>Companies</p>
                             </div>
                             <div class="icon">
-                                <i class="far fa-image"></i>
+                                <i class="fa fa-building"></i>
                             </div>
-                            <a href="{{ route("galleries.index") }}" class="small-box-footer">More info <i
+                            <a href="{{ route("companies.index") }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -62,14 +61,13 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{ $posts }}</h3>
-
-                                <p>Posts</p>
+                                <h3>{{ $directors }}</h3>
+                                <p>Directors</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-blog"></i>
+                                <i class="fa fa-user-tie"></i>
                             </div>
-                            <a href="{{ route("posts.index") }}" class="small-box-footer">More info <i
+                            <a href="{{ route("directors.index") }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -78,13 +76,13 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>{{ $facilities }}</h3>
-                                <p>Facilities</p>
+                                <h3>{{ $testimonials }}</h3>
+                                <p>Testimonials</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-layer-group"></i>
+                                <i class="fa fa-comments"></i>
                             </div>
-                            <a href="{{ route("facilities.index") }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route("testimonials.index") }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->

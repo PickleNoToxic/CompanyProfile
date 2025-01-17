@@ -41,21 +41,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
         MasterWeb::create([
-            'about_title' => 'Tentang Kami',
-            'about_description' => 'Transformer Center merupakan Multi-function venue berbasis edutainment Park yang berlokasi di Kota Wisata Batu, Jawa Timur. Berdiri sejak 2001, Menghadirkan berbagai macam program edukasi, training center hingga entertainment bagi semua kalangan mulai dari anak-anak hingga professional, bahkan berbagai event bisa selalu disesuaikan dengan kebutuhan setiap klien.',
-            'value_title' => 'To Become The Most Valuable Edutainment Park In Indonesia',
-            'statistik_title' => 'Kami berupaya untuk selalu memberikan pengalaman Terbaik Penuh Nilai',
-            'benefit_title' => 'Kenapa Harus Transformer Center',
-            'program_title' => 'Program',
-            'testimonial_title' => 'Testimonial',
-            'gallery_title' => 'Galeri Transformer Center',
+            'title' => 'Your journey to success begins with STAR GROUP',
+            'description' => 'Is acompany group that is ready to grow to become the best in the world. Work closely with our team which is a big family of Binar Group.',
+            'companies_title' => 'Our Companies',
+            'motto' => 'ONE FOR ALL, ALL FOR ONE',
+            'directors_title' => 'Our Directors',
+            'testimonials_title' => 'Testimonial',
+            'testimonials_description' => 'A concrete evidence of the satisfaction and trust held by our clients towards our products or services.',
+            'contact_us_title' => 'Contact Us',
         ]);
 
         Contact::create([
             'address' => 'Jl. Ngagel Madya No. 19-21, Baratajaya, Kecamatan Gubeng, Surabaya - 60284',
             'phone' => '08113488000',
             'email' => 'info@binarcorporation.com',
-            'map' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504.0072829759665!2d112.53160053517212!3d-7.864043995994758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7880b7d5a0c855%3A0x97a941c38202fa3b!2sTransformer%20Center%20%26%20Kampoeng%20Kidz!5e1!3m2!1sen!2sid!4v1724997461333!5m2!1sen!2sid'
+            'map' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5642229902005!2d112.75752527318546!3d-7.290318871652854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbb488e196b3%3A0x5255849de512e153!2sJl.%20Ngagel%20Madya%20No.19%2C%20Baratajaya%2C%20Kec.%20Gubeng%2C%20Surabaya%2C%20Jawa%20Timur%2060284!5e0!3m2!1sen!2sid!4v1737094646491!5m2!1sen!2sid'
         ]);
     }
 }

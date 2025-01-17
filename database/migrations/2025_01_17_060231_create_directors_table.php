@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('master_webs', function (Blueprint $table) {
-            $table->string('statistik_photo')->nullable()->after('statistik_title');
+        Schema::create('directors', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('photo');
+            $table->boolean('is_active')->default(false);
+            $table->timestamps();
         });
     }
 
@@ -21,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('master_webs', function (Blueprint $table) {
-            $table->dropColumn('statistik_photo');
-        });
+        Schema::dropIfExists('directors');
     }
 };
