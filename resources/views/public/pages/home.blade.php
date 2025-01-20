@@ -6,7 +6,12 @@
         p.text-white * {
             color: white !important;
         }
+
+        .swiper-slide {
+            width: auto; 
+        }
     </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 @endpush
 
 @section('container')
@@ -16,9 +21,7 @@
             class="flex flex-col font-[600] text-3xl pt-48 tracking-widest text-center font-poppins text-[#2E3191] w-full h-[64rem] 
              bg-cover bg-center transform  z-0"
             style="background-image: url('{{ asset('assets/images/banner.png') }}')">
-            <h1>Your journey to success begins with</h1>
-            <h1 class="uppercase mt-4"> <span
-                    class="underline decoration-[#F8B500] decoration-[6px] underline-offset-4">star</span> group</h1>
+            <h1 class="mx-72 leading-relaxed">{{ $master_web->title }}</h1>
         </section>
         {{-- 2 --}}
         <section class="w-[120%] h-[32rem] -mt-48 bg-white transform -rotate-6 -ms-8 relative z-10">
@@ -78,9 +81,33 @@
         </section>
         {{-- 4 --}}
         <section
-            class="w-[120%] -ms-16 h-[28rem] bg-white transform -mt-52 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
-            <div class="relative w-full h-full transform rotate-6 overflow-visible flex p-32">
-                <p class="font-bold text-lg">Content on Orange</p>
+            class="w-[140%] -ms-16 h-[28rem] bg-white transform -mt-52 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
+            <div class="rotate-6 pt-16 ms-17">
+                <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
+                    {{ $master_web->directors_title}}
+                </h1>
+                <div class="swiper-container mt-16">
+                    <div class="swiper-wrapper">
+                        @foreach ($directors as $director)
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <p class="mt-4 text-center">{{ $director->name }}</p>
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <p class="mt-4 text-center">{{ $director->name }}</p>
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <p class="mt-4 text-center">{{ $director->name }}</p>
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <p class="mt-4 text-center">{{ $director->name }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </section>
         {{-- 5 --}}
@@ -98,9 +125,49 @@
         <div class="w-[120%] h-44 bg-slate-200 transform -rotate-6 relative -mt-52 -ms-12  z-20"></div>
 
         {{-- 6 --}}
-        <section class="w-[120%] h-[28rem] bg-white-500 -ms-16 transform -rotate-6 -ms-8 relative z-30">
-            <div class="relative w-full h-full transform -rotate-6 overflow-visible flex p-32">
-                <p class="font-bold text-lg">Content on Orange</p>
+        <section class="w-[120%] h-fit bg-white -ms-16 transform -rotate-6 relative z-30">
+            <div class="rotate-6 mt-20">
+                <h1 id="contact-us-title" class="text-[#2E3191] font-[600] text-3xl text-center px-[20%] mb-8">
+                    {{ $master_web->contact_us_title }}
+                </h1>
+                <div class="flex flex-col lg:flex-row">
+                    <div class="relative w-full h-full transform overflow-visible flex-1 p-32">
+                        <div class="mb-4 flex">
+                            <a href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank" rel="noopener noreferrer">
+                                <img class="w-8" src="{{ asset('assets/images/contact_us_location.png') }}">
+                            </a>
+                            <p class="ml-8">{{ $contact->address }}</p>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <a href="mailto:{{ $contact->email }}">
+                                <img class="w-8" src="{{ asset('assets/images/contact_us_gmail.png') }}">
+                            </a>
+                            <p class="ml-8">{{ $contact->email }}</p>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <a href="https://wa.me/62{{ $contact->phone }}">
+                                <img class="w-8" src="{{ asset('assets/images/contact_us_wa.png') }}">
+                            </a>
+                            <p class="ml-8">{{ $formatted_contact_phone }}</p>
+                        </div>
+                    </div>
+                    <div class="flex-1 w-full lg:w-[40vw] h-[400px] lg:h-auto bg-grayPrimary overflow-hidden rounded-3xl">
+                        @if ($contact->map)
+                            <iframe
+                                class="w-full h-full"
+                                src="{{ $contact->map }}"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        @endif
+                    </div>
+                </div>
+                <div class="items-center flex justify-center mt-16">
+                    <p>Follow Us: </p>
+                    @foreach ($sosial_medias as $data)
+                        <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
+                            <img class="w-8 ml-4" src="{{ asset('storage/' . $data->photo) }}">
+                        </a>
+                    @endforeach
+                </div>
             </div>
         </section>
         <div class="w-[120%] h-[16rem] bg-slate-200 transform -rotate-6 relative -mb-20 -mt-[4.5rem] -ms-12  z-20"></div>
@@ -108,4 +175,42 @@
     </main>
 @endsection
 @push('addon-script')
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.getElementById("contact-us-title");
+            const text = titleElement.textContent.trim();
+
+            const halfLength = Math.ceil(text.length / 2);
+
+            const firstHalf = text.slice(0, halfLength);
+            console.log(firstHalf);
+            const secondHalf = text.slice(halfLength);
+            console.log(secondHalf);
+
+            titleElement.innerHTML = `
+                <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.getElementById("directors-title");
+            const text = titleElement.textContent.trim();
+
+            const halfLength = Math.ceil(text.length / 2);
+
+            const firstHalf = text.slice(0, halfLength);
+            console.log(firstHalf);
+            const secondHalf = text.slice(halfLength);
+            console.log(secondHalf);
+
+            titleElement.innerHTML = `
+                <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+        });
+    </script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 48,  
+        });
+    </script>
 @endpush

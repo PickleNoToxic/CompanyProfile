@@ -116,6 +116,18 @@
                                         <trix-editor input="description_input"></trix-editor>
                                     </div>
                                     <div class="form-group">
+                                        <label for="vision_mission_title">Vision Mission Title</label>
+                                        <input type="text"
+                                            class="form-control @error('vision_mission_title') is-invalid @enderror"
+                                            id="vision_mission_title" name="vision_mission_title" placeholder="vision_mission_title"
+                                            value="{{ old('vision_mission_title', $data->vision_mission_title) }}">
+                                        @error('vision_mission_title')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
                                         <label for="motto">Motto</label>
                                         <input type="text"
                                             class="form-control @error('motto') is-invalid @enderror"

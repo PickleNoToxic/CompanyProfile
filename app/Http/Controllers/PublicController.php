@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Benefit;
 use App\Models\CategoryFacility;
 use App\Models\Contact;
+use App\Models\Director;
 use App\Models\Facility;
 use App\Models\Faq;
 use App\Models\Hero;
@@ -48,11 +49,24 @@ class PublicController extends Controller
     }
     public function home()
     {
-        $wa = Contact::first();
+        $master_web = MasterWeb::first();
+        $directors = Director::where('is_active', 1)->get();
+        $contact = Contact::first();
+        $formatted_contact_phone = preg_replace('/^0/', '+62', $contact->phone);
+        $formatted_contact_phone = preg_replace(
+            '/^\+62(\d{3})(\d{3})(\d{4})(\d*)$/',
+            '(+62) $1 $2 $3 $4',
+            $formatted_contact_phone
+        );
+        $sosial_medias = SosialMedia::where('is_active', 1)->get();
+
         return view('public.pages.home',[
             "title" => "Company Profile",
-            "wa" => $wa,
-
+            "master_web" => $master_web,
+            "directors" => $directors,
+            "contact" => $contact,
+            "formatted_contact_phone" => $formatted_contact_phone,
+            "sosial_medias" => $sosial_medias
         ]);
         
 

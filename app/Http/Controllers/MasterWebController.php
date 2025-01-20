@@ -71,6 +71,7 @@ class MasterWebController extends Controller
         $validateData['title'] = $request->title ?? $master->title;
         $validateData['description'] = $request->description ?? $master->description;
         $validateData['companies_title'] = $request->companies_title ?? $master->companies_title;
+        $validateData['vision_mission_title'] = $request->vision_mission_title ?? $master->vision_mission_title;
         $validateData['motto'] = $request->motto ?? $master->motto;
         $validateData['directors_title'] = $request->directors_title ?? $master->directors_title;
         $validateData['testimonials_title'] = $request->testimonials_title ?? $master->testimonials_title;

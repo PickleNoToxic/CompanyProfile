@@ -45,6 +45,7 @@ class DatabaseSeeder extends Seeder
             'description' => 'Is acompany group that is ready to grow to become the best in the world. Work closely with our team which is a big family of Binar Group.',
             'companies_title' => 'Our Companies',
             'motto' => 'ONE FOR ALL, ALL FOR ONE',
+            'vision_mission_title' => 'ONE VISION ONE MISSION',
             'directors_title' => 'Our Directors',
             'testimonials_title' => 'Testimonial',
             'testimonials_description' => 'A concrete evidence of the satisfaction and trust held by our clients towards our products or services.',

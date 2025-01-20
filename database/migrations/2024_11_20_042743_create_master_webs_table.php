@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('company_icon')->nullable();
             $table->text('description');
             $table->string('companies_title');
+            $table->string('vision_mission_title');
             $table->string('motto');
             $table->string('directors_title');
             $table->string('testimonials_title');

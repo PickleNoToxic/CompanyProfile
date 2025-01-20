@@ -1,3 +1,3 @@
-<a href="https://wa.me/62{{ $wa->phone }}?text=Halo,%20Transformer%20Center," rel="noopener noreferrer" target="_blank" class="h-12 md:h-16 w-12 md:w-16 p-2 rounded-full bg-gradient-secondary border-[1px] border-white bg-greenPrimary flex justify-center items-center fixed bottom-7 right-7 cursor-pointer z-40 animate-pulse" data-aos="fade-up">
+<a href="https://wa.me/62{{ $wa }}?text=Halo,%20Transformer%20Center," rel="noopener noreferrer" target="_blank" class="h-12 md:h-16 w-12 md:w-16 p-2 rounded-full bg-gradient-secondary border-[1px] border-white bg-greenPrimary flex justify-center items-center fixed bottom-7 right-7 cursor-pointer z-40 animate-pulse" data-aos="fade-up">
     <img src="/assets/images/whatssapp-white.png" loading="lazy" alt="wa" class="h-6 md:h-8 w-6 md:w-8 object-contain">
 </a>
