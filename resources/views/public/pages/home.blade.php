@@ -160,77 +160,38 @@
                 class="relative w-screen ms-16 ps-[10%] pe-[2.5%] pb-[2.5%] pt-[10%]  h-full transform -rotate-6 overflow-visible flex flex-col justify-end z-20">
                 <div class="flex h-fit justify-end text-end w-full">
                     <div class="flex flex-col w-1/3">
-                        <h1 class="text-white capitalize font-[600] text-3xl mb-8">
-                            testim<span
-                                class="overline decorat decoration-[#F8B500] decoration-[6px] overline-offset-4">onial</span>
+                        <h1 id="testimonials-title" class="text-white font-[600] text-3xl mb-8">
+                            {{ $master_web->testimonials_title }}
                         </h1>
-                        <p class="font-poppins text-white">
-                            A concrete evidence of the satisfaction and trust held by our clients towards
-                            our products or services.
-                        </p>
+                        <p id="testimonials-description" class="font-poppins text-white"></p>
                     </div>
                 </div>
-                <div class="relative flex-grow flex items-center swiper-testimonials-container">
-                    <div class="swiper-wrapper ">
-                        <div class="swiper-slide flex items-center">
-                            <div class="relative w-64 h-64">
-                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#FFFFFFcb] rounded-full shadow-lg">
+                <div class="relative flex-grow flex items-center justify-center swiper-testimonials-container">
+                    <div class="swiper-wrapper">
+                        @foreach ($testimonials as $testimonial)
+                            <div class="swiper-slide flex items-center justify-center">
+                                <div class="relative w-64 h-64">
+                                    <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#f8b600cb] rounded-full shadow-lg">
+                                    </div>
+                                    <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
+                                    </div>
+                                    <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
+                                        <img src="{{ asset('storage/' . $testimonial->photo) }}"
+                                            alt="Profile" class="w-full h-full object-cover" />
+                                    </div>
                                 </div>
-                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
-                                </div>
-                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
-                                        alt="Profile" class="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                            <div class="flex flex-col text-white">
-                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
-                                <p class="font-poppins">Owner PT. Konimex</p>
-                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
-                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide flex items-center">
-                            <div class="relative w-64 h-64">
-                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#f8b600cb] rounded-full shadow-lg">
-                                </div>
-                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
-                                </div>
-                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
-                                        alt="Profile" class="w-full h-full object-cover" />
+                                <div class="flex flex-col text-white ml-16">
+                                    <p class="text-[#F8B500] font-poppins font-bold">{{ $testimonial->name }}</p>
+                                    <p class="font-poppins">{{ $testimonial->company }}</p>
+                                    <div class="w-3/5 mt-4">
+                                        {!! $testimonial->description !!}
+                                    </div>
                                 </div>
                             </div>
-                            <div class="flex flex-col text-white">
-                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
-                                <p class="font-poppins">Owner PT. Konimex</p>
-                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
-                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide flex items-center">
-                            <div class="relative w-64 h-64">
-                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#f8b600cb] rounded-full shadow-lg">
-                                </div>
-                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
-                                </div>
-                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
-                                        alt="Profile" class="w-full h-full object-cover" />
-                                </div>
-                            </div>
-                            <div class="flex flex-col text-white">
-                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
-                                <p class="font-poppins">Owner PT. Konimex</p>
-                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
-                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
-
-
             </div>
         </section>
 
@@ -296,6 +257,10 @@
             const description = document.getElementById("description");
             const descriptionContent = @json($master_web->description); 
             description.innerHTML = descriptionContent;
+
+            const testimonialsDescription = document.getElementById("testimonials-description");
+            const testimonialsDescriptionContent = @json($master_web->testimonials_description); 
+            testimonialsDescription.innerHTML = testimonialsDescriptionContent;
         });
     </script>
     <script>
@@ -309,6 +274,19 @@
             const secondHalf = text.slice(halfLength);
 
             titleElement.innerHTML =`<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.getElementById("testimonials-title");
+            const text = titleElement.textContent.trim();
+
+            const halfLength = Math.ceil(text.length / 2);
+
+            const firstHalf = text.slice(0, halfLength);
+            const secondHalf = text.slice(halfLength);
+
+            titleElement.innerHTML =`${firstHalf}<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${secondHalf}</span>`;
         });
     </script>
     <script>
@@ -335,9 +313,7 @@
             const firstHalf = text.slice(0, halfLength);
             const secondHalf = text.slice(halfLength);
 
-            titleElement.innerHTML =
-     `
-                <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+            titleElement.innerHTML =`<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>

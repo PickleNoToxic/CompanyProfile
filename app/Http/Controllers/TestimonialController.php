@@ -22,7 +22,7 @@ class TestimonialController extends Controller
         $text = "Are you sure you want to delete?";
         confirmDelete($title, $text);
         
-        return view('employees.pages.testimonials.index', [
+        return view('employees.pages.homes.testimonials.index', [
             "menu" => "Testimonials",
             "datas" => $datas
         ]);
@@ -33,7 +33,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('employees.pages.testimonials.create', [
+        return view('employees.pages.homes.testimonials.create', [
             "menu" => "Create Testimonial"
         ]);
     }
@@ -75,7 +75,7 @@ class TestimonialController extends Controller
      */
     public function show(Testimonial $testimonial)
     {
-        return view('employees.pages.testimonials.detail', [
+        return view('employees.pages.homes.testimonials.detail', [
             "menu" => "Detail Testimonials",
             "data" => $testimonial
         ]);

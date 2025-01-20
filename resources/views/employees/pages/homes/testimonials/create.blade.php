@@ -18,7 +18,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin-home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('companies.index') }}">Companies</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('testimonials.index') }}">testimonials</a></li>
                             <li class="breadcrumb-item active">{{ $menu }}</li>
                         </ol>
                     </div><!-- /.col -->
@@ -42,7 +42,7 @@
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form
-                                action="{{ route("companies.store") }}"
+                                action="{{ route("testimonials.store") }}"
                                 method="POST" 
                                 enctype="multipart/form-data">
                                 @csrf
@@ -122,7 +122,7 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success">Submit</button>
-                                    <a href={{ route("companies.index") }} class="btn btn-danger">Back</a>
+                                    <a href={{ route("testimonials.index") }} class="btn btn-danger">Back</a>
                                 </div>
                             </form>
                         </div>

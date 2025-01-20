@@ -55,6 +55,7 @@ class PublicController extends Controller
         $clients = Client::where('is_active', 1)->get();
         $companies = Company::where('is_active', 1)->get();
         $directors = Director::where('is_active', 1)->get();
+        $testimonials = Testimonial::where('is_active', 1)->get();
         $contact = Contact::first();
         $formatted_contact_phone = preg_replace('/^0/', '+62', $contact->phone);
         $formatted_contact_phone = preg_replace(
@@ -70,6 +71,7 @@ class PublicController extends Controller
             "clients" => $clients,
             "companies" => $companies,
             "directors" => $directors,
+            "testimonials" => $testimonials,
             "contact" => $contact,
             "formatted_contact_phone" => $formatted_contact_phone,
             "sosial_medias" => $sosial_medias
