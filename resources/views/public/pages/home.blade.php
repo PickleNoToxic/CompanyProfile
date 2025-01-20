@@ -35,38 +35,51 @@
              bg-cover bg-center transform z-0"
             style="background-image: url('{{ asset('assets/images/banner.png') }}')">
             <h1 class="text-[#2E3191]">{{ $master_web->title }}</h1>
-            <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4">
+            <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden">
                 <h1 class="text-lg tracking-normal">Our Clients:</h1>
-                <div class="grid grid-cols-6 w-fit gap-x-16 mx-auto">
-                    @for ($i = 0; $i < 6; $i++)
-                        <img class="h-28 " src="{{ asset('assets/images/starGroupLogo.png') }}" alt="Star Group Logo">
-                    @endfor
+                <div class="swiper-container swiper-clients-container mx-8 mt-4">
+                    <div class="swiper-wrapper">
+                        @foreach ($clients as $client)
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-28" src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-28" src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-28" src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-28" src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-28" src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </section>
+
         {{-- 2 --}}
         <section class="w-[120%] h-[45rem] -mt-32 pb-20 bg-white transform -rotate-6 -ms-8 relative z-10">
             <div
                 class="relative flex flex-col lg:flex-row ms-9 space-y-12 lg:space-y-0 px-[5%] py-[2.5%] lg:px-[2.5%] w-screen h-full items-center transform rotate-6 overflow-clip ">
                 <div class="flex items-center ">
-                    <img class="h-56" src="{{ asset('assets/images/starGroupLogo.png') }}" alt="">
+                    <img class="h-56" src="{{ asset('storage/' . $master_web->company_icon) }}">
                 </div>
                 <div class="flex flex-[2] item-center ">
-                    <p class="font-poppins text-center lg:text-start "> Is a company group that is ready to grow
-                        to become the best in the world.
-                        work closely with our team
-                        which is a big family of Binar Group.</p>
+                    <p id="description" class="font-poppins text-center lg:text-start "> </p>
                 </div>
                 <div class="flex flex-col flex-[5] lg:ms-20 text-center lg:text-start">
-                    <h1 class="text-[#2E3191] capitalize font-[600] text-3xl mb-8"><span
-                            class="overline decorat decoration-[#F8B500] decoration-[6px] overline-offset-4 ">our
-                            com</span>panies</h1>
-                    <div class="grid grid-cols-4  w-fit gap-y-2 gap-x-12  ">
-                        @for ($i = 0; $i < 8; $i++)
-                            <img class="h-40" src="{{ asset('assets/images/starGroupLogo.png') }}" alt="Star Group Logo">
-                        @endfor
+                    <h1 id="companies-title" class="text-[#2E3191] font-[600] text-3xl mb-8">
+                        {{ $master_web->companies_title}}
+                    </h1>
+                    <div class="grid grid-cols-4 w-fit gap-y-2 gap-x-12  ">
+                        @foreach($companies as $company)
+                            <img class="h-40" src="{{ asset('storage/' . $company->photo) }}">
+                        @endforeach
                     </div>
-
                 </div>
             </div>
         </section>
@@ -99,6 +112,7 @@
                 <p class="text-white font-bold text-lg">Content on Green</p>
             </div>
         </section>
+        
         {{-- 4 --}}
         <section
             class="w-[120%] -ms-16 h-[32rem] bg-white transform -mt-52 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
@@ -106,7 +120,7 @@
                 <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->directors_title }}
                 </h1>
-                <div class="swiper-container mt-16">
+                <div class="swiper-container swiper-directors-container mt-16 mx-8">
                     <div class="swiper-wrapper">
                         @foreach ($directors as $director)
                             <div class="swiper-slide flex-shrink-0">
@@ -134,6 +148,7 @@
                 </div>
             </div>
         </section>
+        
         {{-- 5 --}}
         <section
             class="w-[120%] h-[60rem]  
@@ -278,19 +293,22 @@
 @push('addon-script')
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const description = document.getElementById("description");
+            const descriptionContent = @json($master_web->description); 
+            description.innerHTML = descriptionContent;
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
             const titleElement = document.getElementById("contact-us-title");
             const text = titleElement.textContent.trim();
 
             const halfLength = Math.ceil(text.length / 2);
 
             const firstHalf = text.slice(0, halfLength);
-            console.log(firstHalf);
             const secondHalf = text.slice(halfLength);
-            console.log(secondHalf);
 
-            titleElement.innerHTML =
-                `
-                <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+            titleElement.innerHTML =`<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>
@@ -301,20 +319,38 @@
             const halfLength = Math.ceil(text.length / 2);
 
             const firstHalf = text.slice(0, halfLength);
-            console.log(firstHalf);
             const secondHalf = text.slice(halfLength);
-            console.log(secondHalf);
 
-            titleElement.innerHTML =
-                `
+            titleElement.innerHTML = `
                 <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>
-        const swiper = new Swiper('.swiper-container', {
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.getElementById("companies-title");
+            const text = titleElement.textContent.trim();
+
+            const halfLength = Math.ceil(text.length / 2);
+
+            const firstHalf = text.slice(0, halfLength);
+            const secondHalf = text.slice(halfLength);
+
+            titleElement.innerHTML =
+     `
+                <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+        });
+    </script>
+    <script>
+        const swiperDirectors = new Swiper('.swiper-directors-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 96,  
+        });
+
+        const swiperClients = new Swiper('.swiper-clients-container', {
             slidesPerView: 'auto',
             spaceBetween: 48,
-        });
+        })
+
         const swiperTestimonials = new Swiper('.swiper-testimonials-container', {
             slidesPerView: 1,
             spaceBetween: 90,

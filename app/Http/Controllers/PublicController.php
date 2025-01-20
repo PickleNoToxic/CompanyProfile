@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Benefit;
 use App\Models\CategoryFacility;
+use App\Models\Client;
+use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Director;
 use App\Models\Facility;
@@ -50,6 +52,8 @@ class PublicController extends Controller
     public function home()
     {
         $master_web = MasterWeb::first();
+        $clients = Client::where('is_active', 1)->get();
+        $companies = Company::where('is_active', 1)->get();
         $directors = Director::where('is_active', 1)->get();
         $contact = Contact::first();
         $formatted_contact_phone = preg_replace('/^0/', '+62', $contact->phone);
@@ -63,6 +67,8 @@ class PublicController extends Controller
         return view('public.pages.home',[
             "title" => "Company Profile",
             "master_web" => $master_web,
+            "clients" => $clients,
+            "companies" => $companies,
             "directors" => $directors,
             "contact" => $contact,
             "formatted_contact_phone" => $formatted_contact_phone,
