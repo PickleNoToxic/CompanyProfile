@@ -4,7 +4,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
         .swiper-slide {
-            width: auto; 
+            width: auto;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #FFFFFF;
+            opacity: 0.3;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #F8B500;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border-radius: 50%;
         }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -87,25 +104,29 @@
             class="w-[120%] -ms-16 h-[32rem] bg-white transform -mt-52 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
             <div class="relative w-screen h-full rotate-6 pt-16 ms-[4rem] px-[2.5%] py-[5%]">
                 <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
-                    {{ $master_web->directors_title}}
+                    {{ $master_web->directors_title }}
                 </h1>
                 <div class="swiper-container mt-16">
                     <div class="swiper-wrapper">
                         @foreach ($directors as $director)
                             <div class="swiper-slide flex-shrink-0">
-                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
+                                    src="{{ asset('storage/' . $director->photo) }}" alt="">
                                 <p class="mt-4 text-center">{{ $director->name }}</p>
                             </div>
                             <div class="swiper-slide flex-shrink-0">
-                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
+                                    src="{{ asset('storage/' . $director->photo) }}" alt="">
                                 <p class="mt-4 text-center">{{ $director->name }}</p>
                             </div>
                             <div class="swiper-slide flex-shrink-0">
-                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
+                                    src="{{ asset('storage/' . $director->photo) }}" alt="">
                                 <p class="mt-4 text-center">{{ $director->name }}</p>
                             </div>
                             <div class="swiper-slide flex-shrink-0">
-                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]" src="{{ asset('storage/' . $director->photo) }}" alt="">
+                                <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
+                                    src="{{ asset('storage/' . $director->photo) }}" alt="">
                                 <p class="mt-4 text-center">{{ $director->name }}</p>
                             </div>
                         @endforeach
@@ -121,12 +142,80 @@
             before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:z-10 before:rounded-md"
             style="background-image: url('{{ asset('assets/images/bgSkyScrapper2.png') }}')">
             <div
-                class="relative w-screen ms-16 px-[5%] pb-[2.5%] pt-[5%] lg:px-[2.5%] h-full transform -rotate-6 overflow-visible flex z-20">
-                <div class="flex justify-end">
-                    <h1 class="text-white capitalize font-[600] text-3xl mb-8"><span
-                            class="overline decorat decoration-[#F8B500] decoration-[6px] overline-offset-4 ">our
-                            com</span>panies</h1>
+                class="relative w-screen ms-16 ps-[10%] pe-[2.5%] pb-[2.5%] pt-[10%]  h-full transform -rotate-6 overflow-visible flex flex-col justify-end z-20">
+                <div class="flex h-fit justify-end text-end w-full">
+                    <div class="flex flex-col w-1/3">
+                        <h1 class="text-white capitalize font-[600] text-3xl mb-8">
+                            testim<span
+                                class="overline decorat decoration-[#F8B500] decoration-[6px] overline-offset-4">onial</span>
+                        </h1>
+                        <p class="font-poppins text-white">
+                            A concrete evidence of the satisfaction and trust held by our clients towards
+                            our products or services.
+                        </p>
+                    </div>
                 </div>
+                <div class="relative flex-grow flex items-center swiper-testimonials-container">
+                    <div class="swiper-wrapper ">
+                        <div class="swiper-slide flex items-center">
+                            <div class="relative w-64 h-64">
+                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#FFFFFFcb] rounded-full shadow-lg">
+                                </div>
+                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
+                                </div>
+                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
+                                        alt="Profile" class="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col text-white">
+                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
+                                <p class="font-poppins">Owner PT. Konimex</p>
+                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
+                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide flex items-center">
+                            <div class="relative w-64 h-64">
+                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#f8b600cb] rounded-full shadow-lg">
+                                </div>
+                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
+                                </div>
+                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
+                                        alt="Profile" class="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col text-white">
+                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
+                                <p class="font-poppins">Owner PT. Konimex</p>
+                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
+                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide flex items-center">
+                            <div class="relative w-64 h-64">
+                                <div class="absolute -top-12 -left-10 w-40 h-40 bg-[#f8b600cb] rounded-full shadow-lg">
+                                </div>
+                                <div class="absolute z-20 top-36 left-32 w-16 h-16 bg-[#f8b600cb] rounded-full shadow-md">
+                                </div>
+                                <div class="relative z-10 w-48 h-48 bg-white rounded-full overflow-hidden shadow-xl">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnG9XsiAuW2P1NkrMyXF-qAnh2to04EpRvIg&s"
+                                        alt="Profile" class="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                            <div class="flex flex-col text-white">
+                                <p class="text-[#F8B500] font-poppins font-bold">Rachmadi Joesoef</p>
+                                <p class="font-poppins">Owner PT. Konimex</p>
+                                <p class="font-poppins w-3/5">Suatu bentuk pelatihan yang sangat berbeda dengan pelatihan
+                                    yang kami jalani sebelumnya. Sangat nyata dengan konsep EXPERIENTIAL LEARNING.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+
+
             </div>
         </section>
 
@@ -135,7 +224,8 @@
 
         {{-- 6 --}}
         <section class="w-[120%] h-[50rem] -ms-16 transform -rotate-6 relative z-50">
-            <div class="relative w-screen h-full rotate-6 pt-16 ms-[4rem] px-[10%] py-[5%] flex flex-col mx-auto justify-center items-center">
+            <div
+                class="relative w-screen h-full rotate-6 pt-16 ms-[4rem] px-[10%] py-[5%] flex flex-col mx-auto justify-center items-center">
                 <h1 id="contact-us-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->contact_us_title }}
                 </h1>
@@ -143,7 +233,9 @@
                 <div class="flex flex-col lg:flex-row">
                     <div class="relative h-full transform overflow-visible flex-1 py-24 me-24 ">
                         <div class="mb-4 flex">
-                            <a class="flex-shrink-0 w-8" href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank" rel="noopener noreferrer">
+                            <a class="flex-shrink-0 w-8"
+                                href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
+                                rel="noopener noreferrer">
                                 <img class="w-full" src="{{ asset('assets/images/contact_us_location.png') }}">
                             </a>
                             <p class="ml-8 ">{{ $contact->address }}</p>
@@ -163,10 +255,8 @@
                     </div>
                     <div class="flex-2 w-full lg:w-[40vw] h-[400px] lg:h-auto overflow-hidden rounded-3xl">
                         @if ($contact->map)
-                            <iframe
-                                class="w-full h-full"
-                                src="{{ $contact->map }}"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <iframe class="w-full h-full" src="{{ $contact->map }}" width="100%" height="100%"
+                                style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         @endif
                     </div>
                 </div>
@@ -180,7 +270,8 @@
                 </div>
             </div>
         </section>
-        <div class="w-[120%] h-[16rem] bg-slate-200 transform -rotate-6 relative -mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20"></div>
+        <div class="w-[120%] h-[16rem] bg-slate-200 transform -rotate-6 relative -mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20">
+        </div>
 
     </main>
 @endsection
@@ -197,7 +288,8 @@
             const secondHalf = text.slice(halfLength);
             console.log(secondHalf);
 
-            titleElement.innerHTML = `
+            titleElement.innerHTML =
+                `
                 <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
@@ -213,14 +305,23 @@
             const secondHalf = text.slice(halfLength);
             console.log(secondHalf);
 
-            titleElement.innerHTML = `
+            titleElement.innerHTML =
+                `
                 <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>
         const swiper = new Swiper('.swiper-container', {
             slidesPerView: 'auto',
-            spaceBetween: 48,  
+            spaceBetween: 48,
+        });
+        const swiperTestimonials = new Swiper('.swiper-testimonials-container', {
+            slidesPerView: 1,
+            spaceBetween: 90,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
         });
     </script>
 @endpush
