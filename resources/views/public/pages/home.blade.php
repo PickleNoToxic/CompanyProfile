@@ -3,6 +3,11 @@
 @push('addon-style')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
+        .swiper-companies-container {
+            width: 100%; 
+            overflow: hidden; 
+        }
+
         .swiper-slide {
             width: auto;
         }
@@ -75,10 +80,14 @@
                     <h1 id="companies-title" class="text-[#2E3191] font-[600] text-3xl mb-8">
                         {{ $master_web->companies_title}}
                     </h1>
-                    <div class="grid grid-cols-4 w-fit gap-y-2 gap-x-12  ">
-                        @foreach($companies as $company)
-                            <img class="h-40" src="{{ asset('storage/' . $company->photo) }}">
-                        @endforeach
+                    <div class="swiper-container swiper-companies-container mt-4 overflow-hidden">
+                        <div class="swiper-wrapper">
+                            @foreach ($companies as $company)
+                            <div class="swiper-slide swiper-companies-slide flex-shrink-0">
+                                <img class="h-40" src="{{ asset('storage/' . $company->photo) }}">
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -199,22 +208,22 @@
         </div>
 
         {{-- 6 --}}
-        <section class="w-[120%] h-[50rem] -ms-16 transform -rotate-6 relative z-50">
+        <section class="w-[120%] h-[65rem] lg:h-[50rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0" >
             <div
-                class="relative w-screen h-full rotate-6 pt-16 ms-[4rem] px-[10%] py-[5%] flex flex-col mx-auto justify-center items-center">
+                class="relative w-screen h-full rotate-6 pt-16 ms-[4rem] px-[10%] py-[5%] flex flex-col mx-auto justify-center items-center mt-0">
                 <h1 id="contact-us-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->contact_us_title }}
                 </h1>
 
                 <div class="flex flex-col lg:flex-row">
-                    <div class="relative h-full transform overflow-visible flex-1 py-24 me-24 ">
+                    <div class="relative h-full transform overflow-visible flex-1 pt-8 lg:py-24 lg:me-24 order-2 lg:order-1">
                         <div class="mb-4 flex">
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
                                 rel="noopener noreferrer">
                                 <img class="w-full" src="{{ asset('assets/images/contact_us_location.png') }}">
                             </a>
-                            <p class="ml-8 ">{{ $contact->address }}</p>
+                            <p class="ml-8">{{ $contact->address }}</p>
                         </div>
                         <div class="mb-4 flex items-center">
                             <a class="flex-shrink-0 w-8" href="mailto:{{ $contact->email }}">
@@ -229,7 +238,7 @@
                             <p class="ml-8">{{ $formatted_contact_phone }}</p>
                         </div>
                     </div>
-                    <div class="flex-2 w-full lg:w-[40vw] h-[400px] lg:h-auto overflow-hidden rounded-3xl">
+                    <div class="flex-2 w-full lg:w-[40vw] h-[400px] lg:h-auto overflow-hidden rounded-3xl order-1 lg:order-2">
                         @if ($contact->map)
                             <iframe class="w-full h-full" src="{{ $contact->map }}" width="100%" height="100%"
                                 style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -239,6 +248,9 @@
                 <div class="items-center flex justify-center mt-16">
                     <p>Follow Us: </p>
                     @foreach ($sosial_medias as $data)
+                        <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
+                            <img class="w-8 ml-4" src="{{ asset('storage/' . $data->photo) }}">
+                        </a>
                         <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
                             <img class="w-8 ml-4" src="{{ asset('storage/' . $data->photo) }}">
                         </a>
@@ -335,5 +347,10 @@
                 clickable: true
             },
         });
+
+        const swiperCompanies = new Swiper('.swiper-companies-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 48,
+        })
     </script>
 @endpush
