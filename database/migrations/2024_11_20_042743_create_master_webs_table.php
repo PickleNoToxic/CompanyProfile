@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('companies_title');
             $table->string('vision_mission_title');
+            $table->string('vision_mission_background')->nullable();
             $table->string('motto');
             $table->string('directors_title');
             $table->string('testimonials_title');

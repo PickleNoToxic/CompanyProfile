@@ -64,6 +64,7 @@ class MasterWebController extends Controller
             'hero_background' => 'image|file',
             'company_icon' => 'image|file',
             'testimonial_background' => 'image|file',
+            'vision_mission_background' => 'image|file',
         ];
 
         $validateData = $request->validate($rules);
@@ -85,6 +86,15 @@ class MasterWebController extends Controller
 
             $validateData['hero_background'] = $request->file('hero_background')->store('homes');
         }
+
+        if ($request->file('vision_mission_background')) {
+            if ($master->vision_mission_background) {
+                Storage::delete($master->vision_mission_background);
+            }
+
+            $validateData['vision_mission_background'] = $request->file('vision_mission_background')->store('homes');
+        }
+
 
         if ($request->file('company_icon')) {
             if ($master->company_icon) {

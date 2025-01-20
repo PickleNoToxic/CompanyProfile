@@ -38,7 +38,7 @@
         <section
             class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-[5%] pt-48 tracking-widest text-center font-poppins 
              bg-cover bg-center transform z-0"
-            style="background-image: url('{{ asset('assets/images/banner.png') }}')">
+            style="background-image: url('{{ asset('storage/' . $master_web->hero_background) }}')">
             <h1 class="text-[#2E3191]">{{ $master_web->title }}</h1>
             <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden">
                 <h1 class="text-lg tracking-normal">Our Clients:</h1>
@@ -102,7 +102,7 @@
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%] rotate-[10deg] 
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094b8a] before:rounded-md
                 -mt-40"
-                style="background-image: url('{{ asset('assets/images/bgSkyScrapper1.png') }}')">
+                style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
             </div>
 
             <!-- Content -->
@@ -116,7 +116,7 @@
             bg-cover bg-[50%_100%] transform rotate-6 -ms-16 relative z-40
             before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:z-10 before:rounded-md
             "
-            style="background-image: url('{{ asset('assets/images/bgSkyScrapper1.png') }}')">
+            style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
             <div class="relative w-full h-full transform rotate-3 overflow-visible flex items-center justify-center z-20">
                 <p class="text-white font-bold text-lg">Content on Green</p>
             </div>
@@ -164,7 +164,7 @@
             bg-cover transform rotate-6 -ms-16 -mt-40 bg-[50%_100%] 
             relative z-40 
             before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:z-10 before:rounded-md"
-            style="background-image: url('{{ asset('assets/images/bgSkyScrapper2.png') }}')">
+            style="background-image: url('{{ asset('storage/' . $master_web->testimonials_background) }}')">
             <div
                 class="relative w-screen ms-16 ps-[10%] pe-[2.5%] pb-[2.5%] pt-[10%]  h-full transform -rotate-6 overflow-visible flex flex-col justify-end z-20">
                 <div class="flex h-fit justify-end text-end w-full">

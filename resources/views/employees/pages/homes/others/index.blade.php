@@ -43,7 +43,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         @if ($data->hero_background)
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="hero_background_label">Hero Background</label>
                                                     <img src="{{ asset('storage/' . $data->hero_background) }}"
@@ -55,7 +55,7 @@
                                             </div>
                                         @endif
                                         @if ($data->company_icon)
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="stats_label">Company Icon</label>
                                                     <img src="{{ asset('storage/' . $data->company_icon) }}"
@@ -64,7 +64,7 @@
                                             </div>
                                         @endif
                                         @if ($data->testimonials_background)
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="testimonial_label">Testimonials Background</label>
                                                     <img src="{{ asset('storage/' . $data->testimonials_background) }}"
@@ -72,7 +72,15 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        
+                                        @if ($data->vision_mission_background)
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="testimonial_label">Vision Mission Background</label>
+                                                    <img src="{{ asset('storage/' . $data->vision_mission_background) }}"
+                                                        class="img-fluid mb-3 col-sm-5 d-block">
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -205,7 +213,7 @@
                                         <trix-editor input="testimonial_description_input"></trix-editor>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="statistik_label">Company Icon (2460x952)</label>
                                                 <div class="input-group">
@@ -224,7 +232,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="hero_background_label">Hero Background (2460x952)</label>
                                                 <div class="input-group">
@@ -243,7 +251,28 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="vision_mission_background_label">Vision Mission Background (2460x952)</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="vision_mission_background" name="vision_mission_background" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="vision_mission_background">Choose File</label>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                </div>
+                                                @error('vision_mission_background')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="testimonial_label">Testimonial Background (2460x952)</label>
                                                 <div class="input-group">
@@ -299,6 +328,11 @@
         document.querySelector('#hero_background').addEventListener('change', function () {
             const fileName = this.files[0]?.name || 'Choose File';
             document.querySelector('label[for="hero_background"]').textContent = fileName;
+        });
+
+        document.querySelector('#vision_mission_background').addEventListener('change', function () {
+            const fileName = this.files[0]?.name || 'Choose File';
+            document.querySelector('label[for="vision_mission_background"]').textContent = fileName;
         });
 
         $(function () {
