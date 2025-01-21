@@ -50,35 +50,35 @@
     <main class="relative overflow-clip">
         {{-- 1 --}}
         <section
-            class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-12 pt-48 tracking-widest text-center font-poppins 
+            class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-8 pt-48 tracking-widest text-center font-poppins 
              bg-cover bg-center transform z-0"
             style="background-image: url('{{ asset('storage/' . $master_web->hero_background) }}')">
             <h1 class="text-[#2E3191]">{!! $master_web->title !!}</h1>
-            <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden">
-                <h1 class="text-lg tracking-normal">Our Clients:</h1>
-                <div class="swiper-clients-container mx-8 mt-4">
+            <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%] mx-auto ">
+                <h1 class="text-base md:text-2xl tracking-normal">Our Clients:</h1>
+                <div class="swiper-clients-container ms-8 mt-4 ">
                     <div class="swiper-wrapper">
                         @for ($i = 0; $i < 3; $i++)
                             @foreach ($clients as $client)
                                 <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[2rem] grayscale-[90%] grayscale(100%)"
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
                                         src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                                 <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[2rem] grayscale-[90%]" src="{{ asset('storage/' . $client->photo) }}"
-                                        alt="Client Photo">
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                                 <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[2rem] grayscale-[90%]" src="{{ asset('storage/' . $client->photo) }}"
-                                        alt="Client Photo">
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                                 <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[2rem] grayscale-[90%]" src="{{ asset('storage/' . $client->photo) }}"
-                                        alt="Client Photo">
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                                 <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[2rem] grayscale-[90%]" src="{{ asset('storage/' . $client->photo) }}"
-                                        alt="Client Photo">
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                             @endforeach
                         @endfor
@@ -90,7 +90,7 @@
         {{-- 2 OK --}}
         <section class="w-[140%] h-[40rem] -mt-32 bg-white transform -rotate-6 -ms-8 relative z-10">
             <div
-                class="rotate-6 flex lg:flex-row flex-col  ms-8 px-8 py-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
+                class="rotate-6 flex lg:flex-row flex-col  ms-8 p-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
                 <!-- Div Pertama -->
                 <div class="w-full lg:w-[50%] lg:space-y-0 space-y-12 flex flex-col lg:flex-row ">
                     <div class="flex flex-shrink-0 justify-center items-center">
@@ -129,24 +129,79 @@
 
         {{-- bar1 OK --}}
         <div class="w-[140%] h-[20rem] bg-slate-200 transform rotate-6 relative -ms-12 mt-12 z-20"></div>
-        
+
         {{-- 3 --}}
         <section
-            class="w-[140%] h-[75rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30">
+            class="w-[140%] h-[75rem] -ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30">
             <!-- Background Div -->
-            <div class="absolute inset-0 -z-10 transform bg-[50%_13%] rotate-[10deg] 
-                bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094b8a] before:rounded-md
+            <div class="absolute inset-0 -z-10 transform bg-[50%_13%]
+                bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
                 -mt-40"
                 style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
             </div>
 
             <!-- Content -->
-            <div class="relative w-full h-full ms-16 transform rotate-6 overflow-visible flex items-center justify-center">
-                <h1 class="text-[#F8B500] text-extrabold text-3xl">{{ $master_web->vision_mission_title }}</h1>
+            <div
+                class="relative w-screen h-full ms-20 px-8 py-24 transform rotate-6 overflow-visible flex items-start justify-center">
+                <h1 class="text-[#F8B500] font-[600] tracking-widest text-3xl">{{ $master_web->vision_mission_title }}</h1>
             </div>
         </section>
 
+        <div
+            class="w-[140%] h-[16rem] bg-slate-200 transform rotate-6 relative -mt-[15.8rem] md:-mt-[14rem] lg:-mt-[14rem] xl:-mt-[12rem] -ms-12  z-20">
+        </div>
+
+
+
         {{-- 4 --}}
+        <section
+            class="w-[140%] h-[52rem] md:h-[70rem] lg:h-[50rem] xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 lg:-mt-0">
+            <div
+                class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
+                <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8">
+                    {{ $master_web->contact_us_title }}
+                </h1>
+                <div class="flex flex-col  6 lg:flex-row w-full ">
+                    <div class=" transform overflow-visible lg:flex-1  pt-8 lg:py-24 lg:me-24 order-2 lg:order-1">
+                        <div class="mb-4 flex">
+                            <a class="flex-shrink-0 w-8"
+                                href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
+                                rel="noopener noreferrer">
+                                <img class="w-full" src="{{ asset('assets/images/contact_us_location.png') }}">
+                            </a>
+                            <p class="ml-8">{{ $contact->address }}</p>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <a class="flex-shrink-0 w-8" href="mailto:{{ $contact->email }}">
+                                <img class="w-full" src="{{ asset('assets/images/contact_us_gmail.png') }}">
+                            </a>
+                            <p class="ml-8">{{ $contact->email }}</p>
+                        </div>
+                        <div class="mb-4 flex items-center">
+                            <a class="flex-shrink-0 w-8" href="https://wa.me/62{{ $contact->phone }}">
+                                <img class="w-full" src="{{ asset('assets/images/contact_us_wa.png') }}">
+                            </a>
+                            <p class="ml-8 ">{{ $formatted_contact_phone }}</p>
+                        </div>
+                    </div>
+                    <div class="  lg:flex-[2]  overflow-hidden w-full rounded-3xl order-1 lg:order-2">
+                        @if ($contact->map)
+                            <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="{{ $contact->map }}"
+                                    style="border: 0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+                                </iframe>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+                <div class="flex  items-center justify-center mt-16">
+                    <p class="whitespace-nowrap">Follow Us: </p>
+                </div>
+        </section>
+        {{-- bar3 --}}
+        <div
+            class="w-[140%] h-[16rem] bg-slate-200 transform -rotate-6 relative  md:-mb-[12.5rem] lg:-mb-[11.5rem] xl:-mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20">
+        </div>
 
         {{-- 5 --}}
         {{-- gambar atas --}}
@@ -407,8 +462,7 @@
             const secondHalf = text.slice(halfLength);
 
             titleElement.innerHTML =
-                `
-                        <span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
+                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>
@@ -435,7 +489,15 @@
 
         const swiperClients = new Swiper('.swiper-clients-container', {
             slidesPerView: 'auto',
-            spaceBetween: 80
+            spaceBetween: 40,
+            breakpoints: {
+                1024: {
+                    spaceBetween: 100,
+                },
+                1540: {
+                    spaceBetween: 128,
+                },
+            },
         })
 
 
