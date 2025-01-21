@@ -131,6 +131,20 @@
         <div class="w-[140%] h-[20rem] bg-slate-200 transform rotate-6 relative -ms-12 mt-12 z-20"></div>
         
         {{-- 3 --}}
+        <section
+            class="w-[140%] h-[75rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30">
+            <!-- Background Div -->
+            <div class="absolute inset-0 -z-10 transform bg-[50%_13%] rotate-[10deg] 
+                bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094b8a] before:rounded-md
+                -mt-40"
+                style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
+            </div>
+
+            <!-- Content -->
+            <div class="relative w-full h-full ms-16 transform rotate-6 overflow-visible flex items-center justify-center">
+                <h1 class="text-[#F8B500] text-extrabold text-3xl">{{ $master_web->vision_mission_title }}</h1>
+            </div>
+        </section>
 
         {{-- 4 --}}
 
