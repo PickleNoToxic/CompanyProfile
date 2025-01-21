@@ -129,8 +129,12 @@
 
         {{-- bar1 OK --}}
         <div class="w-[140%] h-[20rem] bg-slate-200 transform rotate-6 relative -ms-12 mt-12 z-20"></div>
-
+        
         {{-- 3 --}}
+
+        {{-- 4 --}}
+
+        {{-- 5 --}}
         {{-- gambar atas --}}
         <section
             class="w-[140%] h-[55rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30 border-t-[0.8rem] border-[#F8B500]">
@@ -158,7 +162,7 @@
             </div>
         </section>
 
-        {{-- 4 OK --}}
+        {{-- 6 OK --}}
         <section
             class="w-[140%] -ms-16 h-[28rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
             <div class="relative w-screen h-full rotate-6 py-16 ms-[4rem] px-8">
@@ -219,7 +223,7 @@
             </div>
         </section>
 
-        {{-- 5 --}}
+        {{-- 7 --}}
         <section
             class="w-[140%] h-[50rem]  
             bg-cover transform rotate-6 -ms-16 -mt-40 bg-[50%_100%] 
@@ -277,7 +281,7 @@
             class="w-[140%] h-64 bg-slate-200 transform -rotate-6 relative -mt-[15.7rem] md:-mt-[17rem] lg:-mt-[18rem] xl:-mt-[20rem] -ms-12  z-20">
         </div>
 
-        {{-- 6 --}}
+        {{-- 8 --}}
         <section
             class="w-[140%] h-[52rem] md:h-[70rem] lg:h-[50rem] xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
             <div

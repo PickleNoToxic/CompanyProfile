@@ -411,7 +411,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="vision_mission_background_label">Number of Projects Icon (2460x952)</label>
+                                                <label for="vision_mission_background_label">Vision Mission Background (2460x952)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="vision_mission_background" name="vision_mission_background" accept='.png,.jpg,.jpeg'>
