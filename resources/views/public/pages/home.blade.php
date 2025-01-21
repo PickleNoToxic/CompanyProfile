@@ -5,6 +5,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
+        ul {
+            list-style: disc;
+            padding-left: 1.5rem; 
+        }
+
+        li {
+            margin-bottom: 1rem; 
+        }
+
+
         .swiper-slide {
             width: auto;
         }
@@ -89,8 +99,7 @@
 
         {{-- 2 OK --}}
         <section class="w-[140%] h-[40rem] -mt-32 bg-white transform -rotate-6 -ms-8 relative z-10">
-            <div
-                class="rotate-6 flex lg:flex-row flex-col  ms-8 p-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
+            <div class="rotate-6 flex lg:flex-row flex-col  ms-8 p-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
                 <!-- Div Pertama -->
                 <div class="w-full lg:w-[50%] lg:space-y-0 space-y-12 flex flex-col lg:flex-row ">
                     <div class="flex flex-shrink-0 justify-center items-center">
@@ -141,9 +150,23 @@
             </div>
 
             <!-- Content -->
-            <div
-                class="relative w-screen h-full ms-20 px-8 py-24 transform rotate-6 overflow-visible flex items-start justify-center">
-                <h1 class="text-[#F8B500] font-[600] tracking-widest text-3xl">{{ $master_web->vision_mission_title }}</h1>
+            <div class="relative w-screen h-full ms-20 px-8 py-12 md:py-24 transform rotate-6 overflow-visible flex flex-col items-start">
+                <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed">
+                    {{ $master_web->vision_mission_title }}
+                </h1>
+                <div class="flex flex-col md:flex-row w-full py-8 md:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
+                    <div class="w-full md:w-[50%] flex justify-center">
+                        <img src="{{ asset('storage/' . $master_web->mission_photo) }}" class="rounded-lg">
+                    </div>
+                    <div class="w-full md:w-[50%] flex flex-col justify-center md:justify-start">
+                        <h1 id="mission-title" class="text-white font-[600] text-3xl text-start">
+                            {{ $master_web->mission_title }}
+                        </h1>
+                        <div class="pt-8 md:pt-16">
+                            <div id="mission-description" class="max-w-128 font-poppins text-white text-start">{!! $master_web->mission_description !!}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -151,13 +174,10 @@
             class="w-[140%] h-[16rem] bg-slate-200 transform rotate-6 relative -mt-[15.8rem] md:-mt-[14rem] lg:-mt-[14rem] xl:-mt-[12rem] -ms-12  z-20">
         </div>
 
-
-
         {{-- 4 --}}
         <section
             class="w-[140%] h-[52rem] md:h-[70rem] lg:h-[50rem] xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 lg:-mt-0">
-            <div
-                class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
+            <div class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
                 <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->contact_us_title }}
                 </h1>
@@ -205,8 +225,7 @@
 
         {{-- 5 --}}
         {{-- gambar atas --}}
-        <section
-            class="w-[140%] h-[55rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30 border-t-[0.8rem] border-[#F8B500]">
+        <section class="w-[140%] h-[55rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30 border-t-[0.8rem] border-[#F8B500]">
             <!-- Background Div -->
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%] rotate-[10deg] 
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094b8a] before:rounded-md
@@ -220,8 +239,7 @@
             </div>
         </section>
         {{-- gambar bawah --}}
-        <section
-            class="w-[140%] h-[55rem] -mt-[30rem]
+        <section class="w-[140%] h-[55rem] -mt-[30rem]
             bg-cover bg-[50%_100%] transform rotate-6 -ms-16 relative z-40
             before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:z-10 before:rounded-md
             "
@@ -232,8 +250,7 @@
         </section>
 
         {{-- 6 OK --}}
-        <section
-            class="w-[140%] -ms-16 h-[28rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
+        <section class="w-[140%] -ms-16 h-[28rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
             <div class="relative w-screen h-full rotate-6 py-16 ms-[4rem] px-8">
                 <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->directors_title }}
@@ -418,9 +435,27 @@
             const descriptionContent = @json($master_web->description);
             description.innerHTML = descriptionContent;
 
+            // const missionDescription = document.getElementById("mission-description");
+            // const missionDescriptionContent = @json($master_web->mission_description);
+            // missionDescription.innerHTML = missionDescriptionContent;
+
             const testimonialsDescription = document.getElementById("testimonials-description");
             const testimonialsDescriptionContent = @json($master_web->testimonials_description);
             testimonialsDescription.innerHTML = testimonialsDescriptionContent
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const titleElement = document.getElementById("mission-title");
+            const text = titleElement.textContent.trim();
+
+            const halfLength = Math.ceil(text.length / 2);
+
+            const firstHalf = text.slice(0, halfLength);
+            const secondHalf = text.slice(halfLength);
+
+            titleElement.innerHTML =
+                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>
