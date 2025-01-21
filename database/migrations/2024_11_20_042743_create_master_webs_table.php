@@ -19,8 +19,18 @@ return new class extends Migration
             $table->text('description');
             $table->string('companies_title');
             $table->string('vision_mission_title');
+            $table->string('mission_title');
+            $table->text('mission_description');
+            $table->string('mission_photo')->nullable();
+            $table->string('value_title');
             $table->string('vision_mission_background')->nullable();
             $table->string('motto');
+            $table->string('works_title');
+            $table->text('works_description');
+            $table->integer('number_of_projects');
+            $table->integer('number_of_satisfied_customers');
+            $table->string('projects_icon')->nullable();
+            $table->string('satisfied_customers_icon')->nullable();
             $table->string('directors_title');
             $table->string('testimonials_title');
             $table->text('testimonials_description');

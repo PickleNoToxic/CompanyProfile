@@ -45,6 +45,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'description' => 'required',
             'photo' => 'image|file',
+            'photo_description' => 'image|file',
             'is_active' => '',
             'url' => 'required'
         ];
@@ -55,6 +56,12 @@ class CompanyController extends Controller
             $validateData['photo'] = $request->file('photo')->store('companies');
         } else {
             $validateData['photo'] = null;
+        }
+
+        if ($request->file('photo_description')) {
+            $validateData['photo_description'] = $request->file('photo_description')->store('companies');
+        } else {
+            $validateData['photo_description'] = null;
         }
 
         $result = Company::create($validateData);
@@ -96,6 +103,7 @@ class CompanyController extends Controller
             'name' => 'required',
             'description' => 'required',
             'photo' => 'image|file',
+            'photo_description' => 'image|file',
             'is_active' => '',
             'url' => 'required'
         ];
@@ -110,6 +118,16 @@ class CompanyController extends Controller
             $validateData['photo'] = $request->file('photo')->store('companies');
         } else {
             $validateData['photo'] =$company->photo;
+        }
+
+        if ($request->file('photo_description')) {
+            if ($company->photo_description) {
+                Storage::delete($company->photo_description);
+            }
+
+            $validateData['photo_description'] = $request->file('photo_description')->store('companies');
+        } else {
+            $validateData['photo_description'] =$company->photo_description;
         }
 
         $result = Company::where('id', $company->id)->update($validateData);

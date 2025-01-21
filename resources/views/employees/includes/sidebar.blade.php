@@ -52,41 +52,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route("directors.index") }}" class="nav-link {{ Request::is('secretgate/directors*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Director Section</p>
-                            </a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a href="{{ route("heroes.index") }}" class="nav-link {{ Request::is('secretgate/heroes*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Hero Section</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route("admin-about-section") }}" class="nav-link {{ Request::is('secretgate/about*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>About Section</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route("admin-value-section") }}" class="nav-link {{ Request::is('secretgate/value*') ? 'active' : ''}}">
+                            <a href="{{ route("values.index") }}" class="nav-link {{ Request::is('secretgate/values*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Value Section</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route("statistiks.index") }}" class="nav-link {{ Request::is('secretgate/statistiks*') ? 'active' : ''}}">
+                            <a href="{{ route("works.index") }}" class="nav-link {{ Request::is('secretgate/works*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Statistik Section</p>
+                                <p>Work Section</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route("benefits.index") }}" class="nav-link {{ Request::is('secretgate/benefits*') ? 'active' : ''}}">
+                            <a href="{{ route("directors.index") }}" class="nav-link {{ Request::is('secretgate/directors*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Benefit Section</p>
+                                <p>Director Section</p>
                             </a>
-                        </li> -->
+                        </li>
                         <li class="nav-item">
                             <a href="{{ route("testimonials.index") }}" class="nav-link {{ Request::is('secretgate/testimonials*') ? 'active' : ''}}">
                                 <i class="far fa-circle nav-icon"></i>

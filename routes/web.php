@@ -4,7 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\CategoryFacilityController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DirectorController;
 use App\Http\Controllers\FacilityController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GalleryPostController;
@@ -18,9 +21,9 @@ use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SosialMediaController;
 use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\TestimonialController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\ValueController;
+use App\Http\Controllers\WorkController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -92,5 +95,7 @@ Route::prefix('secretgate')
 
         Route::resource('/clients', ClientController::class);
         Route::resource('/companies', CompanyController::class);
+        Route::resource('/values', ValueController::class);
+        Route::resource('/works', WorkController::class);
         Route::resource('/directors', DirectorController::class);
 });

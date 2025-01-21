@@ -31,7 +31,6 @@
                         <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>{{ $clients }}</h3>
-
                                 <p>Clients</p>
                             </div>
                             <div class="icon">
@@ -53,6 +52,36 @@
                                 <i class="fa fa-building"></i>
                             </div>
                             <a href="{{ route("companies.index") }}" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box bg-primary">
+                            <div class="inner">
+                                <h3>{{ $values }}</h3>
+                                <p>Values</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <a href="{{ route("values.index") }}" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <!-- ./col -->
+                    <div class="col-lg-3 col-6">
+                        <!-- small box -->
+                        <div class="small-box" style="background-color: #FFA500;">
+                            <div class="inner">
+                                <h3>{{ $works }}</h3>
+                                <p>Works</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-briefcase"></i>
+                            </div>
+                            <a href="{{ route("works.index") }}" class="small-box-footer">More info <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -87,7 +116,6 @@
                     </div>
                     <!-- ./col -->
                 </div>
-
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.content -->

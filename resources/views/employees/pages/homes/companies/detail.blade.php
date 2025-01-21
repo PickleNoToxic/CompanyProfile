@@ -35,16 +35,31 @@
                     <div class="col-12">
                         <div class="card card-info">
                             <div class="card-header">
-                                <h3 class="card-title">Photo</h3>
+                                <h3 class="card-title">Images</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="row d-flex justify-content-center align-items-center">
-                                    @if ($data->photo)
-                                        <img src="{{ asset('storage/' . $data->photo) }}" class="img-fluid mb-2" alt="{{ $data->name }}" style="max-height: 300px; width: auto;" />
-                                    @endif
+                                    <div class="row">
+                                        @if ($data->photo)
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="photo_label">Photo</label>
+                                                    <img src="{{ asset('storage/' . $data->photo) }}"
+                                                        class="img-fluid mb-3 col-sm-5 d-block">
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if ($data->photo_description)
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="stats_label">Photo Description</label>
+                                                    <img src="{{ asset('storage/' . $data->photo_description) }}"
+                                                        class="img-fluid mb-3 col-sm-5 d-block">
+                                                </div>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
-                            </div>
                             <!-- /.card-body -->
                         </div>
                     </div>
@@ -100,16 +115,33 @@
                                         <input id="x" type="hidden" name="description" value="{{ old('description', $data->description) }}">
                                         <trix-editor input="x"></trix-editor>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="is_active">Status</label>
+                                        <select class="form-control @error('is_active') is-invalid @enderror" id="is_active" name="is_active" required>
+                                            <option value="">Choose a status</option>
+                                            <option value="1" {{ old('is_active', $data->is_active) == '1' ? 'selected' : '' }}>Active</option>
+                                            <option value="0" {{ old('is_active', $data->is_active) == '0' ? 'selected' : '' }}>Inactive</option>
+                                        </select>
+                                        @error('is_active')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="is_active">Status</label>
-                                                <select class="form-control @error('is_active') is-invalid @enderror" id="is_active" name="is_active" required>
-                                                    <option value="">Choose a status</option>
-                                                    <option value="1" {{ old('is_active', $data->is_active) == '1' ? 'selected' : '' }}>Active</option>
-                                                    <option value="0" {{ old('is_active', $data->is_active) == '0' ? 'selected' : '' }}>Inactive</option>
-                                                </select>
-                                                @error('is_active')
+                                        <div class="form-group">
+                                                <label for="photo_background">New Photo Background (250x250)</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="photo_background" name="photo_background" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="photo_background">Choose File</label>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                </div>
+                                                @error('photo_background')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -159,7 +191,13 @@
 @push('addon-script')
     <script src="/secretgate/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>
-        document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+        document.querySelector('#photo').addEventListener('change', function (e) {
+            const fileName = e.target.files[0]?.name || 'Choose File';
+            const label = e.target.nextElementSibling;
+            label.textContent = fileName;
+        });
+
+        document.querySelector('#photo_background').addEventListener('change', function (e) {
             const fileName = e.target.files[0]?.name || 'Choose File';
             const label = e.target.nextElementSibling;
             label.textContent = fileName;

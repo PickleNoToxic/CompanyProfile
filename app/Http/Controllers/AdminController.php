@@ -8,6 +8,8 @@ use App\Models\Client;
 use App\Models\Director;
 use App\Models\Testimonial;
 use App\Models\User;
+use App\Models\Value;
+use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -19,12 +21,16 @@ class AdminController extends Controller
     {
         $clients = Client::where('is_active', 1)->count();
         $companies = Company::where('is_active', 1)->count();
+        $values = Value::where('is_active', 1)->count();
+        $works = Work::where('is_active', 1)->count();
         $directors = Director::where('is_active', 1)->count();
         $testimonials = Testimonial::where('is_active', 1)->count();
         return view('employees.pages.index', [
             "menu" => "Dashboard",
             "clients" => $clients,
             "companies" => $companies,
+            "values" => $values,
+            "works" => $works,
             "directors" => $directors,
             "testimonials" => $testimonials,
         ]);

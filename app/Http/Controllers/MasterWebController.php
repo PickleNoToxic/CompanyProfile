@@ -65,6 +65,9 @@ class MasterWebController extends Controller
             'company_icon' => 'image|file',
             'testimonial_background' => 'image|file',
             'vision_mission_background' => 'image|file',
+            'mission_photo' => 'image|file',
+            'projects_icon' => 'image|file',
+            'satisfied_customers_icon' => 'image|file',
         ];
 
         $validateData = $request->validate($rules);
@@ -73,7 +76,14 @@ class MasterWebController extends Controller
         $validateData['description'] = $request->description ?? $master->description;
         $validateData['companies_title'] = $request->companies_title ?? $master->companies_title;
         $validateData['vision_mission_title'] = $request->vision_mission_title ?? $master->vision_mission_title;
+        $validateData['mission_title'] = $request->mission_title ?? $master->mission_title;
+        $validateData['mission_description'] = $request->mission_description ?? $master->mission_description;
+        $validateData['value_title'] = $request->value_title ?? $master->value_title;
         $validateData['motto'] = $request->motto ?? $master->motto;
+        $validateData['works_title'] = $request->works_title ?? $master->works_title;
+        $validateData['works_description'] = $request->works_description ?? $master->works_description;
+        $validateData['number_of_projects'] = $request->number_of_projects ?? $master->number_of_projects;
+        $validateData['number_of_satisfied_customers'] = $request->number_of_satisfied_customers ?? $master->number_of_satisfied_customers;
         $validateData['directors_title'] = $request->directors_title ?? $master->directors_title;
         $validateData['testimonials_title'] = $request->testimonials_title ?? $master->testimonials_title;
         $validateData['testimonials_description'] = $request->testimonials_description ?? $master->testimonials_description;
@@ -95,6 +105,29 @@ class MasterWebController extends Controller
             $validateData['vision_mission_background'] = $request->file('vision_mission_background')->store('homes');
         }
 
+        if ($request->file('mission_photo')) {
+            if ($master->mission_photo) {
+                Storage::delete($master->mission_photo);
+            }
+
+            $validateData['mission_photo'] = $request->file('mission_photo')->store('homes');
+        }
+
+        if ($request->file('projects_icon')) {
+            if ($master->projects_icon) {
+                Storage::delete($master->projects_icon);
+            }
+
+            $validateData['projects_icon'] = $request->file('projects_icon')->store('homes');
+        }
+
+        if ($request->file('satisfied_customers_icon')) {
+            if ($master->satisfied_customers_icon) {
+                Storage::delete($master->satisfied_customers_icon);
+            }
+
+            $validateData['satisfied_customers_icon'] = $request->file('satisfied_customers_icon')->store('homes');
+        }
 
         if ($request->file('company_icon')) {
             if ($master->company_icon) {
