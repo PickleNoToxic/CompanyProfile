@@ -5,13 +5,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        ul {
-            list-style: disc;
-            padding-left: 1.5rem; 
+        #mission-description ul {
+            list-style-type: none; 
         }
 
-        li {
-            margin-bottom: 1rem; 
+        #mission-description li {
+            position: relative; 
+            margin-bottom: 8px; 
+            padding-left: 2rem;
+            line-height: 2;
+            display: flex;
+            align-items: center; 
+        }
+
+        #mission-description li::before {
+            content: '•'; 
+            font-size: 3rem; 
+            color: #F8B500; 
+            position: absolute; 
+            left: 0; 
+            top: 50%; 
+            transform: translateY(-50%); 
+        }
+
+        #mission-description li p { 
+            flex-grow: 1; 
+            line-height: 1.5; 
         }
 
 
@@ -163,7 +182,8 @@
                             {{ $master_web->mission_title }}
                         </h1>
                         <div class="pt-8 md:pt-16">
-                            <div id="mission-description" class="max-w-128 font-poppins text-white text-start">{!! $master_web->mission_description !!}</div>
+                            <div id="mission-description" class="max-w-128 font-poppins text-white text-start">{!! $master_web->mission_description !!}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -434,10 +454,6 @@
             const description = document.getElementById("description");
             const descriptionContent = @json($master_web->description);
             description.innerHTML = descriptionContent;
-
-            // const missionDescription = document.getElementById("mission-description");
-            // const missionDescriptionContent = @json($master_web->mission_description);
-            // missionDescription.innerHTML = missionDescriptionContent;
 
             const testimonialsDescription = document.getElementById("testimonials-description");
             const testimonialsDescriptionContent = @json($master_web->testimonials_description);
