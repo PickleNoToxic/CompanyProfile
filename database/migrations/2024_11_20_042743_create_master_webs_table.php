@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('master_webs', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->text('title');
             $table->string('hero_background')->nullable();
             $table->string('company_icon')->nullable();
             $table->text('description');
