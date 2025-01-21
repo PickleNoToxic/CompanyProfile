@@ -65,5 +65,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'info@binarcorporation.com',
             'map' => 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5642229902005!2d112.75752527318546!3d-7.290318871652854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbb488e196b3%3A0x5255849de512e153!2sJl.%20Ngagel%20Madya%20No.19%2C%20Baratajaya%2C%20Kec.%20Gubeng%2C%20Surabaya%2C%20Jawa%20Timur%2060284!5e0!3m2!1sen!2sid!4v1737094646491!5m2!1sen!2sid'
         ]);
+
+        $this->call([
+            ValueSeeder::class
+        ]);
     }
 }
