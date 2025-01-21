@@ -132,15 +132,8 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="header_title">Header Title</label>
-                                        <input type="text"
-                                            class="form-control @error('header_title') is-invalid @enderror"
-                                            id="header_title" name="header_title" placeholder="Header Title"
-                                            value="{{ old('header_title', $data->title) }}">
-                                        @error('header_title')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
+                                        <input id="header_title_input" type="hidden" name="header_title" value="{{ old('header_title', $data->title) }}">
+                                        <trix-editor input="header_title_input"></trix-editor>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
