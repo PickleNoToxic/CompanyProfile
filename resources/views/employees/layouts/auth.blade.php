@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
 
-    <meta name="description" content="Admin - Transformer Center" />
+    <meta name="description" content="Admin - Star Group" />
     <meta name="author" content="Star IT" />
-    <link rel="shortcut icon" href="/assets/images/Transformer-Favicon.png" type="image/x-icon" />
-    <link rel="icon" href="/assets/images/Transformer-Favicon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/assets/images/starGroupLogo.png" type="image/x-icon" />
+    <link rel="icon" href="/assets/images/starGroupLogo.png" type="image/x-icon"/>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">

@@ -246,37 +246,26 @@
             class="w-[140%] h-[50rem] md:h-[55rem] lg:h-[50rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 lg">
             <div
                 class="relative w-screen h-full rotate-6 ms-16 md:ms-[4.7rem]  px-8 pt-8 pb-40 md:pt-28 md:pb-28 lg:pt-40 lg:pb-40  md:-top-24 lg:-top-32 flex flex-col justify-center items-center space-y-12">
-                <h1 id="contact-us-title" class="text-[#2E3191] font-[600] text-3xl text-center">Core Value</h1>
+                <h1 id="value-title" class="text-[#2E3191] font-[600] text-3xl text-center">
+                    {{ $master_web->value_title }}
+                </h1>
                 <div class="flex flex-row space-x-4 items-center">
-                    <h1
-                        class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold">
-                        H</h1>
-                    <h1
-                        class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold">
-                        H</h1>
-                    <h1
-                        class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold">
-                        H</h1>
+                    @foreach ($values as $value)
+                        <h1
+                            class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold">
+                            {{ $value->initial }}</h1>
+                    @endforeach
                 </div>
 
                 <!-- Swiper Container -->
                 <div class="swiper-values-container w-full">
                     <div class="swiper-wrapper flex flex-row lg:justify-center">
-                        <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center">
-                            <h1 class="text-[#2E3191] font-bold mb-8">H.O.T Selaras</h1>
-                            <p>Mengedepankan hati untuk memahami, otak untuk menganalisis dan mengambil keputusan bijak,
-                                serta tindakan yang konsisten dengan nilai-nilai tersebut untuk mencapai harmoni dan hasil
-                                yang optimal.</p>
-                        </div>
-                        <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center">
-                            <h1 class="text-[#2E3191] font-bold mb-8">Harmony Over Time</h1>
-                            <p>A focus on balance and consistency to achieve long-term success and understanding.</p>
-                        </div>
-                        <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center">
-                            <h1 class="text-[#2E3191] font-bold mb-8">High-Order Thinking</h1>
-                            <p>Encouraging advanced cognitive processes for innovative solutions and wise decision-making.
-                            </p>
-                        </div>
+                        @foreach ($values as $value)
+                            <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center">
+                                <h1 class="text-[#2E3191] font-bold mb-8">{{ $value->name }}</h1>
+                                <p>{!! $value->description !!}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -306,7 +295,6 @@
                     {{-- {{ $master_web->$motto}} --}}
                     Unity For One
                 </h1>
-
             </div>
         </section>
         {{-- gambar bawah --}}
@@ -317,7 +305,6 @@
                 -mt-96"
                 style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
             </div>
-
 
             <div
                 class="relative w-screen h-full transform -rotate-6 ms-16 px-8 pt-24 pb-64 -top-20  overflow-visible flex items-center justify-center z-20">
@@ -588,6 +575,7 @@
 
         decorateTitle("mission-title");
         decorateTitle("contact-us-title");
+        decorateTitle("value-title");
         decorateTitle("directors-title");
         decorateTitle("companies-title");
     });
