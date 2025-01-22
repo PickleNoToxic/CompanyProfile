@@ -298,7 +298,7 @@
             class="w-[140%] h-[16rem] bg-slate-200 transform -rotate-6 relative  md:-mb-[12.5rem] lg:-mb-[11.5rem] xl:-mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20">
         </div>
 
-        {{-- 5 --}}
+        {{-- 5 OK --}}
         {{-- gambar atas OK --}}
         <section
             class="w-[140%] h-[16rem] md:h-[21rem] lg:h-[25rem] xl:h-[30rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30 border-t-[0.8rem] border-[#F8B500]">
