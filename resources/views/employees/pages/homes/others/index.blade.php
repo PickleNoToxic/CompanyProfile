@@ -60,15 +60,6 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        @if ($data->testimonials_background)
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="testimonials_label">Testimonials Background</label>
-                                                    <img src="{{ asset('storage/' . $data->testimonials_background) }}"
-                                                        class="img-fluid mb-3 col-sm-5 d-block">
-                                                </div>
-                                            </div>
-                                        @endif
                                         @if ($data->vision_mission_background)
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -105,6 +96,15 @@
                                                 </div>
                                             </div>
                                         @endif
+                                        @if ($data->testimonials_background)
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="testimonials_label">Testimonials Background</label>
+                                                    <img src="{{ asset('storage/' . $data->testimonials_background) }}"
+                                                        class="img-fluid mb-3 col-sm-5 d-block">
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -134,6 +134,46 @@
                                         <label for="header_title">Header Title</label>
                                         <input id="header_title_input" type="hidden" name="header_title" value="{{ old('header_title', $data->title) }}">
                                         <trix-editor input="header_title_input"></trix-editor>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="statistik_label">Company Icon (2460x952)</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="company_icon" name="company_icon" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="company_icon">Choose File</label>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                </div>
+                                                @error('company_icon')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="hero_background_label">Hero Background (2460x952)</label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="hero_background" name="hero_background" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="hero_background">Choose File</label>
+                                                    </div>
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">Upload</span>
+                                                    </div>
+                                                </div>
+                                                @error('hero_background')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
@@ -181,6 +221,23 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mission_photo_label">Mission Photo (2460x952)</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="mission_photo" name="mission_photo" accept='.png,.jpg,.jpeg'>
+                                                <label class="custom-file-label" for="mission_photo">Choose File</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
+                                        @error('mission_photo')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="mission_description">Mission Description</label>
@@ -354,63 +411,6 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="statistik_label">Company Icon (2460x952)</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="company_icon" name="company_icon" accept='.png,.jpg,.jpeg'>
-                                                        <label class="custom-file-label" for="company_icon">Choose File</label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                </div>
-                                                @error('company_icon')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="hero_background_label">Hero Background (2460x952)</label>
-                                                <div class="input-group">
-                                                    <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="hero_background" name="hero_background" accept='.png,.jpg,.jpeg'>
-                                                        <label class="custom-file-label" for="hero_background">Choose File</label>
-                                                    </div>
-                                                    <div class="input-group-append">
-                                                        <span class="input-group-text">Upload</span>
-                                                    </div>
-                                                </div>
-                                                @error('hero_background')
-                                                    <div class="invalid-feedback">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="mission_photo_label">Mission Photo (2460x952)</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="mission_photo" name="mission_photo" accept='.png,.jpg,.jpeg'>
-                                                <label class="custom-file-label" for="mission_photo">Choose File</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Upload</span>
-                                            </div>
-                                        </div>
-                                        @error('mission_photo')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
                                                 <label for="vision_mission_background_label">Vision Mission Background (2460x952)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
@@ -465,7 +465,6 @@
         <!-- /.content -->
     </div>
 @endsection
-
 
 @push('addon-script')
     <script src="/secretgate/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>

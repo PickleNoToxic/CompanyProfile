@@ -3,8 +3,11 @@
 @push('addon-style')
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
+        .no-scroll {
+            overflow: hidden;
+        }
+
         #mission-description ul {
             list-style-type: none;
         }
@@ -73,6 +76,39 @@
 
 @section('container')
     <main class="relative overflow-clip">
+        <!-- Modal Overlay -->
+        <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none z-40"></div>
+        <!-- Main modal -->
+        <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:px-5 rounded-t">
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-4 md:px-5 space-y-4">
+                        <img id="modal-photo" class="w-full h-auto object-cover rounded" alt="Company Photo">
+                        <h3 id="modal-title" class="text-xl font-semibold"></h3>
+                        <p id="modal-description" class="text-justify leading-relaxed"></p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-4 md:p-5 rounded-b">
+                        <a id="modal-link" href="" target="_blank" class="text-white w-full bg-[#2E3191] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Visit Site 
+                            <i class="fa fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- 1 --}}
         {{-- 1 OK --}}
         <section
             class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-8 pt-48 tracking-widest text-center font-poppins 
@@ -133,17 +169,29 @@
                     <div class="swiper-container swiper-companies-container mt-4 overflow-hidden">
                         <div class="swiper-wrapper">
                             @foreach ($companies as $company)
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
                             @endforeach
                         </div>
@@ -157,7 +205,7 @@
 
         {{-- 3 --}}
         <section
-            class="w-[140%] h-[75rem] -ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30">
+            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] -ms-16 s:-ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
             <!-- Background Div -->
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%]
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
@@ -166,14 +214,11 @@
             </div>
 
             <!-- Content -->
-            <div
-                class="relative w-screen h-full ms-20 px-8 py-12 md:py-24 transform rotate-6 overflow-visible flex flex-col items-start">
-                <h1
-                    class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed">
+            <div class="relative w-screen h-full ms-16 s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
+                <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed">
                     {{ $master_web->vision_mission_title }}
                 </h1>
-                <div
-                    class="flex flex-col md:flex-row w-full py-8 md:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flex flex-col md:flex-row w-full py-8 md:py-16 lg:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
                     <div class="w-full md:w-[50%] flex justify-center">
                         <img src="{{ asset('storage/' . $master_web->mission_photo) }}" class="rounded-lg">
                     </div>
@@ -181,9 +226,8 @@
                         <h1 id="mission-title" class="text-white font-[600] text-3xl text-start">
                             {{ $master_web->mission_title }}
                         </h1>
-                        <div class="pt-8 md:pt-16">
-                            <div id="mission-description" class="max-w-128 font-poppins text-white text-start">
-                                {!! $master_web->mission_description !!}
+                        <div class="pt-8">
+                            <div id="mission-description" class="max-w-128 font-poppins text-white text-start">{!! $master_web->mission_description !!}
                             </div>
                         </div>
                     </div>
@@ -416,14 +460,14 @@
 
         {{-- 8 --}}
         <section
-            class="w-[140%] h-[52rem] md:h-[70rem] lg:h-[50rem] xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
+            class="w-[140%] h-[52rem] md:h-[65rem] lg:h-[45rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
             <div
                 class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
                 <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->contact_us_title }}
                 </h1>
                 <div class="flex flex-col  6 lg:flex-row w-full ">
-                    <div class=" transform overflow-visible lg:flex-1  pt-8 lg:py-24 lg:me-24 order-2 lg:order-1">
+                    <div class="transform overflow-visible lg:flex lg:flex-col lg:flex-1  lg:justify-center pt-8 lg:py-24 lg:mx-12 order-2 lg:order-1">
                         <div class="mb-4 flex">
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
@@ -455,7 +499,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="flex  items-center justify-center mt-16">
+                <div class="flex  items-center justify-center mt-16 lg:mt-8">
                     <p class="whitespace-nowrap">Follow Us: </p>
                     @foreach ($sosial_medias as $data)
                         <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
@@ -477,6 +521,48 @@
 @endsection
 @push('addon-script')
     <script>
+        const body = document.body;
+        const overlay = document.getElementById("modal-overlay");
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".swiper-companies-slide");
+
+        const modal = document.getElementById("default-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalPhoto = document.getElementById("modal-photo");
+        const modalDescription = document.getElementById("modal-description");
+        const modalLink = document.getElementById("modal-link");
+
+        slides.forEach(slide => {
+            slide.addEventListener("click", () => {
+                const name = slide.dataset.name;
+                const description = slide.dataset.description;
+                const photo = slide.dataset.photo;
+                const url = slide.dataset.url;
+
+                modalTitle.textContent = name;
+                modalPhoto.src = photo;
+                modalDescription.innerHTML = description;
+                modalLink.href = url;
+
+                modal.classList.remove("hidden");
+                body.classList.add("no-scroll");
+                overlay.classList.add("opacity-100");
+                overlay.classList.remove("pointer-events-none");
+            });
+        });
+
+        document.querySelectorAll("[data-modal-hide]").forEach(button => {
+            button.addEventListener("click", () => {
+                modal.classList.add("hidden");
+                body.classList.remove("no-scroll");
+                overlay.classList.remove("opacity-100");
+                overlay.classList.add("pointer-events-none");
+            });
+        });
+    });
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const description = document.getElementById("description");
             const descriptionContent = @json($master_web->description);
@@ -489,31 +575,22 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("mission-title");
+        function decorateTitle(titleId) {
+            const titleElement = document.getElementById(titleId);
             const text = titleElement.textContent.trim();
-
             const halfLength = Math.ceil(text.length / 2);
-
             const firstHalf = text.slice(0, halfLength);
             const secondHalf = text.slice(halfLength);
 
             titleElement.innerHTML =
                 `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("contact-us-title");
-            const text = titleElement.textContent.trim();
+        }
 
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
+        decorateTitle("mission-title");
+        decorateTitle("contact-us-title");
+        decorateTitle("directors-title");
+        decorateTitle("companies-title");
+    });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -530,39 +607,10 @@
         });
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("directors-title");
-            const text = titleElement.textContent.trim();
-
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("companies-title");
-            const text = titleElement.textContent.trim();
-
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
-    </script>
-    <script>
         const swiperDirectors = new Swiper('.swiper-directors-container', {
             slidesPerView: 'auto',
             spaceBetween: 96,
         });
-
 
 
         const swiperClients = new Swiper('.swiper-clients-container', {
