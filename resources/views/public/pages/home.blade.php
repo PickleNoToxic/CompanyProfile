@@ -299,8 +299,7 @@
             <div
                 class="relative w-screen h-full transform ms-[4.5rem] rotate-6 -top-16 md:-top-20 xl:-top-[5.5rem] flex items-center justify-center px-8 py-20 md:py-28 lg:py-36  xl:py-40 ">
                 <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl text-center leading-relaxed">
-                    {{-- {{ $master_web->$motto}} --}}
-                    Unity For One
+                    {{ $master_web->motto }} 
                 </h1>
             </div>
         </section>
@@ -316,11 +315,11 @@
                 class="relative w-screen h-full transform -rotate-6 ms-16 px-4 md:px-8 pt-24 pb-64 -top-20  overflow-visible flex items-center justify-center z-20">
                 <div class="flex flex-col w-full space-y-8 justify-between">
                     <div class="flex flex-col lg:max-w-[50%]">
-                        <h1 id="testimonials-title" class="text-white font-[600] text-3xl mb-8">
-                            {{ $master_web->testimonials_title }}
+                        <h1 id="works-title" class="text-white font-[600] text-3xl text-start mb-8">
+                            {{ $master_web->works_title }}
                         </h1>
 
-                        <p id="testimonials-description"
+                        <p id="works-description"
                             class="font-poppins  text-white text-xs  lg:text-base xl:text-xl ">
                         </p>
                     </div>
@@ -330,13 +329,13 @@
                             <div class="relative swiper-container swiper-works-container w-full mx-auto  lg:px-12">
                                 <div class="swiper-wrapper">
                                     @for ($i = 0; $i < 20; $i++)
-                                        @foreach ($directors as $director)
+                                        @foreach ($works as $work)
                                             <div
                                                 class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12   swiper-companies-slide overflow-hidden flex flex-col text-center justify-center items-center">
                                                 <div>
                                                     <img class="w-32 lg:w-44 h-32 lg:h-44 object-cover rounded-full"
-                                                        src="{{ asset('storage/' . $director->photo) }}" alt="">
-                                                    <p class="mt-4 text-white">Lorem, ipsum dolor.</p>
+                                                        src="{{ asset('storage/' . $work->photo) }}" alt="{{ $work->name}}">
+                                                    <p class="mt-4 text-white">{{ $work->name }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -347,15 +346,15 @@
 
                         <div class=" flex lg:w-2/5 justify-evenly items-center">
                             <div class="flex flex-col w-fit  items-center justify-center text-center">
-                                <img src="https://s3-alpha-sig.figma.com/img/d2fb/9c1d/2b79609c575b0b8a1fec11afdd46568c?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KohvcQ~ToG-~9NfRUWX4B6bUXolMOCUtM7EE-BLsrq~cvXdadh7-9yQ3jPhgosOSWN~UVNRiDMlXlV6O81AUfNQ4MnNUmY47LvOSa5i5uqReLOGX8qS61quXs~cKTd5gT1gq5ocALqi3KWHnyBcjLpf4vVFsSEFjH6D8FiK97HqQNPACWxQX9kiZ7HzRCGCgYosQ-m07PkVYj4rBDuOyi2de5k8zalsPS270s9hlHMt8ELj6oEqeIG7LsMzhLH4x4DmCRqqv-nTE7UPrcjiGRLU3hhcojLcpghvNGd76wk0s1DSTDKgdk9jxJPdy-A3SfGpqhC3-38Tdb~bVc~s8dQ__"
-                                    alt="" class="w-16 lg:w-24 h-auto">
-                                <h1 class="w-fit text-white text-3xl font-bold">2.000</h1>
+                                <img src="{{ asset('storage/' . $master_web->projects_icon) }}"
+                                    alt="Projects" class="w-16 mb-8 lg:w-24 h-auto">
+                                <h1 class="w-fit text-white text-3xl font-bold">{{ $master_web->number_of_projects }}</h1>
                                 <h1 class="w-fit text-white ">Project</h1>
                             </div>
                             <div class="flex flex-col w-fit  items-center justify-center text-center">
-                                <img src="https://s3-alpha-sig.figma.com/img/d2fb/9c1d/2b79609c575b0b8a1fec11afdd46568c?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KohvcQ~ToG-~9NfRUWX4B6bUXolMOCUtM7EE-BLsrq~cvXdadh7-9yQ3jPhgosOSWN~UVNRiDMlXlV6O81AUfNQ4MnNUmY47LvOSa5i5uqReLOGX8qS61quXs~cKTd5gT1gq5ocALqi3KWHnyBcjLpf4vVFsSEFjH6D8FiK97HqQNPACWxQX9kiZ7HzRCGCgYosQ-m07PkVYj4rBDuOyi2de5k8zalsPS270s9hlHMt8ELj6oEqeIG7LsMzhLH4x4DmCRqqv-nTE7UPrcjiGRLU3hhcojLcpghvNGd76wk0s1DSTDKgdk9jxJPdy-A3SfGpqhC3-38Tdb~bVc~s8dQ__"
-                                    alt="" class="w-16 lg:w-24 h-auto">
-                                <h1 class="w-fit text-white text-3xl font-bold">273</h1>
+                                <img src="{{ asset('storage/' . $master_web->satisfied_clients_icon) }}"
+                                    alt="Satisfied Clients" class="w-16 mb-8 lg:w-24 h-auto">
+                                <h1 class="w-fit text-white text-3xl font-bold">{{ $master_web->number_of_satisfied_clients }}</h1>
                                 <h1 class="w-fit text-white ">Satisfied Client</h1>
                             </div>
 
@@ -562,6 +561,10 @@
             const descriptionContent = @json($master_web->description);
             description.innerHTML = descriptionContent;
 
+            const worksDescription = document.getElementById("works-description");
+            const worksDescriptionContent = @json($master_web->works_description);
+            worksDescription.innerHTML = worksDescriptionContent
+
             const testimonialsDescription = document.getElementById("testimonials-description");
             const testimonialsDescriptionContent = @json($master_web->testimonials_description);
             testimonialsDescription.innerHTML = testimonialsDescriptionContent
@@ -583,6 +586,7 @@
         decorateTitle("mission-title");
         decorateTitle("contact-us-title");
         decorateTitle("value-title");
+        decorateTitle("works-title");
         decorateTitle("directors-title");
         decorateTitle("companies-title");
     });

@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
             'works_title' => 'The Work',
             'works_description' => 'We offer a wide range of services to support the growth of your business.',
             'number_of_projects' => 31368,
-            'number_of_satisfied_customers' => 273,
+            'number_of_satisfied_clients' => 273,
             'directors_title' => 'Our Directors',
             'testimonials_title' => 'Testimonial',
             'testimonials_description' => 'A concrete evidence of the satisfaction and trust held by our clients towards our products or services.',

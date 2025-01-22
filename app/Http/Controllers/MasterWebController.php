@@ -67,7 +67,7 @@ class MasterWebController extends Controller
             'vision_mission_background' => 'image|file',
             'mission_photo' => 'image|file',
             'projects_icon' => 'image|file',
-            'satisfied_customers_icon' => 'image|file',
+            'satisfied_clients_icon' => 'image|file',
         ];
 
         $validateData = $request->validate($rules);
@@ -83,7 +83,7 @@ class MasterWebController extends Controller
         $validateData['works_title'] = $request->works_title ?? $master->works_title;
         $validateData['works_description'] = $request->works_description ?? $master->works_description;
         $validateData['number_of_projects'] = $request->number_of_projects ?? $master->number_of_projects;
-        $validateData['number_of_satisfied_customers'] = $request->number_of_satisfied_customers ?? $master->number_of_satisfied_customers;
+        $validateData['number_of_satisfied_clients'] = $request->number_of_satisfied_clients ?? $master->number_of_satisfied_clients;
         $validateData['directors_title'] = $request->directors_title ?? $master->directors_title;
         $validateData['testimonials_title'] = $request->testimonials_title ?? $master->testimonials_title;
         $validateData['testimonials_description'] = $request->testimonials_description ?? $master->testimonials_description;
@@ -121,12 +121,12 @@ class MasterWebController extends Controller
             $validateData['projects_icon'] = $request->file('projects_icon')->store('homes');
         }
 
-        if ($request->file('satisfied_customers_icon')) {
-            if ($master->satisfied_customers_icon) {
-                Storage::delete($master->satisfied_customers_icon);
+        if ($request->file('satisfied_clients_icon')) {
+            if ($master->satisfied_clients_icon) {
+                Storage::delete($master->satisfied_clients_icon);
             }
 
-            $validateData['satisfied_customers_icon'] = $request->file('satisfied_customers_icon')->store('homes');
+            $validateData['satisfied_clients_icon'] = $request->file('satisfied_clients_icon')->store('homes');
         }
 
         if ($request->file('company_icon')) {

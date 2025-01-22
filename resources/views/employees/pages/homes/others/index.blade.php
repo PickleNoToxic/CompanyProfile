@@ -87,11 +87,11 @@
                                                 </div>
                                             </div>
                                         @endif
-                                        @if ($data->satisfied_customers_icon)
+                                        @if ($data->satisfied_clients_icon)
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="mission_label">Satisfied Customers Icon</label>
-                                                    <img src="{{ asset('storage/' . $data->satisfied_customers_icon) }}"
+                                                    <label for="mission_label">Satisfied Clients Icon</label>
+                                                    <img src="{{ asset('storage/' . $data->satisfied_clients_icon) }}"
                                                         class="img-fluid mb-3 col-sm-5 d-block">
                                                 </div>
                                             </div>
@@ -278,12 +278,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="number_of_satisfied_customers">Number of Satisfied Customers</label>
+                                                <label for="number_of_satisfied_clients">Number of Satisfied Clients</label>
                                                 <input type="number" min="0"
-                                                    class="form-control @error('number_of_satisfied_customers') is-invalid @enderror"
-                                                    id="number_of_satisfied_customers" name="number_of_satisfied_customers" placeholder="Number of Satisfied Customers"
-                                                    value="{{ old('number_of_satisfied_customers', $data->number_of_satisfied_customers) }}">
-                                                @error('number_of_satisfied_customers')
+                                                    class="form-control @error('number_of_satisfied_clients') is-invalid @enderror"
+                                                    id="number_of_satisfied_clients" name="number_of_satisfied_clients" placeholder="Number of Satisfied Clients"
+                                                    value="{{ old('number_of_satisfied_clients', $data->number_of_satisfied_clients) }}">
+                                                @error('number_of_satisfied_clients')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -313,17 +313,17 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="satisfied_customers_icon_label">Satisfied Customers Icon (2460x952)</label>
+                                                <label for="satisfied_clients_icon_label">Satisfied Clients Icon (2460x952)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="satisfied_customers_icon" name="satisfied_customers_icon" accept='.png,.jpg,.jpeg'>
-                                                        <label class="custom-file-label" for="satisfied_customers_icon">Choose File</label>
+                                                        <input type="file" class="custom-file-input" id="satisfied_clients_icon" name="satisfied_clients_icon" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="satisfied_clients_icon">Choose File</label>
                                                     </div>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">Upload</span>
                                                     </div>
                                                 </div>
-                                                @error('satisfied_customers_icon')
+                                                @error('satisfied_clients_icon')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -494,9 +494,9 @@
             document.querySelector('label[for="vision_mission_background"]').textContent = fileName;
         });
 
-        document.querySelector('#satisfied_customers_icon').addEventListener('change', function () {
+        document.querySelector('#satisfied_clients_icon').addEventListener('change', function () {
             const fileName = this.files[0]?.name || 'Choose File';
-            document.querySelector('label[for="satisfied_customers_icon"]').textContent = fileName;
+            document.querySelector('label[for="satisfied_clients_icon"]').textContent = fileName;
         });
 
         document.querySelector('#projects_icon').addEventListener('change', function () {

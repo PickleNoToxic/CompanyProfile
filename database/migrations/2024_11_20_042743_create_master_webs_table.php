@@ -28,9 +28,9 @@ return new class extends Migration
             $table->string('works_title');
             $table->text('works_description');
             $table->integer('number_of_projects');
-            $table->integer('number_of_satisfied_customers');
+            $table->integer('number_of_satisfied_clients');
             $table->string('projects_icon')->nullable();
-            $table->string('satisfied_customers_icon')->nullable();
+            $table->string('satisfied_clients_icon')->nullable();
             $table->string('directors_title');
             $table->string('testimonials_title');
             $table->text('testimonials_description');

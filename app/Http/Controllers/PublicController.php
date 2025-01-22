@@ -15,6 +15,7 @@ use App\Models\SosialMedia;
 use App\Models\Statistik;
 use App\Models\Testimonial;
 use App\Models\Value;
+use App\Models\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -26,6 +27,7 @@ class PublicController extends Controller
         $clients = Client::where('is_active', 1)->get();
         $companies = Company::where('is_active', 1)->get();
         $values = Value::where('is_active', 1)->get();
+        $works = Work::where('is_active', 1)->get();
         $directors = Director::where('is_active', 1)->get();
         $testimonials = Testimonial::where('is_active', 1)->get();
         $contact = Contact::first();
@@ -43,6 +45,7 @@ class PublicController extends Controller
             "clients" => $clients,
             "companies" => $companies,
             "values" => $values,
+            "works" => $works,
             "directors" => $directors,
             "testimonials" => $testimonials,
             "contact" => $contact,
