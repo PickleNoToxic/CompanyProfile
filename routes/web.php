@@ -2,24 +2,13 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BenefitController;
-use App\Http\Controllers\CategoryFacilityController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DirectorController;
-use App\Http\Controllers\FacilityController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\GalleryPostController;
-use App\Http\Controllers\HeroController;
 use App\Http\Controllers\MasterWebController;
-use App\Http\Controllers\OurGalleryController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SosialMediaController;
-use App\Http\Controllers\StatistikController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ValueController;
 use App\Http\Controllers\WorkController;
@@ -39,13 +28,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PublicController::class)->group(function () {
     Route::get('/', 'home')->name('home');
-    Route::get('/programs', 'programs')->name('programs');
-    Route::get('/posts', 'posts')->name('posts');
-    Route::get('/posts/{post:slug}', 'post')->name('post');
-    Route::get('/contact-us', 'contact')->name('contact');
-    Route::get('/our-galleries', 'galleries')->name('galleries');
-    Route::get('/orders', 'orders')->name('orders');
-    Route::get('/facilities', 'facilities')->name('facilities');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -77,22 +59,10 @@ Route::prefix('secretgate')
 			Route::put('/employees/{user}', 'update')->name('admin-employees-update');
         });
 
-        Route::resource('/benefits', BenefitController::class);
-        Route::resource('/statistiks', StatistikController::class);
-        Route::resource('/heroes', HeroController::class);
         Route::resource('/master', MasterWebController::class);
         Route::resource('/testimonials', TestimonialController::class);
-        Route::resource('/galleries', OurGalleryController::class);
         Route::resource('/contacts', ContactController::class);
         Route::resource('/sosmeds', SosialMediaController::class);
-        Route::resource('/partners', PartnerController::class);
-        Route::resource('/posts', PostController::class);
-        Route::resource('/post-galleries', GalleryPostController::class);
-        Route::resource('/programs', ProgramController::class);
-        Route::resource('/facility/categories', CategoryFacilityController::class);
-        Route::resource('/facility/facilities', FacilityController::class);
-        Route::resource('/faqs', FaqController::class);
-
         Route::resource('/clients', ClientController::class);
         Route::resource('/companies', CompanyController::class);
         Route::resource('/values', ValueController::class);

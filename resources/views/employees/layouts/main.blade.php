@@ -39,7 +39,6 @@
     </div>
     <!-- ./wrapper -->
 
-
     {{-- script --}}
     @stack('prepend-script')
     @include('employees.includes.script')
