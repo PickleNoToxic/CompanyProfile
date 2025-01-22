@@ -500,7 +500,17 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const description = document.getElementById("description");
+            const descriptionContent = @json($master_web->description);
+            description.innerHTML = descriptionContent;
 
+            const testimonialsDescription = document.getElementById("testimonials-description");
+            const testimonialsDescriptionContent = @json($master_web->testimonials_description);
+            testimonialsDescription.innerHTML = testimonialsDescriptionContent
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
         function decorateTitle(titleId) {
             const titleElement = document.getElementById(titleId);
             const text = titleElement.textContent.trim();
