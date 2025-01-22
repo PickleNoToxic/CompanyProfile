@@ -207,7 +207,7 @@
 
         {{-- 3 --}}
         <section
-            class="w-[140%] h-[75rem] -ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30">
+            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] -ms-16 s:-ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
             <!-- Background Div -->
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%]
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
@@ -216,11 +216,11 @@
             </div>
 
             <!-- Content -->
-            <div class="relative w-screen h-full ms-20 px-8 py-12 md:py-24 transform rotate-6 overflow-visible flex flex-col items-start">
+            <div class="relative w-screen h-full ms-16 s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
                 <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed">
                     {{ $master_web->vision_mission_title }}
                 </h1>
-                <div class="flex flex-col md:flex-row w-full py-8 md:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flex flex-col md:flex-row w-full py-8 md:py-16 lg:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
                     <div class="w-full md:w-[50%] flex justify-center">
                         <img src="{{ asset('storage/' . $master_web->mission_photo) }}" class="rounded-lg">
                     </div>
@@ -228,7 +228,7 @@
                         <h1 id="mission-title" class="text-white font-[600] text-3xl text-start">
                             {{ $master_web->mission_title }}
                         </h1>
-                        <div class="pt-8 md:pt-16">
+                        <div class="pt-8">
                             <div id="mission-description" class="max-w-128 font-poppins text-white text-start">{!! $master_web->mission_description !!}
                             </div>
                         </div>
@@ -236,7 +236,6 @@
                 </div>
             </div>
         </section>
-
         <div
             class="w-[140%] h-[16rem] bg-slate-200 transform rotate-6 relative -mt-[15.8rem] md:-mt-[14rem] lg:-mt-[14rem] xl:-mt-[12rem] -ms-12  z-20">
         </div>
