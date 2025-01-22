@@ -395,14 +395,14 @@
 
         {{-- 8 --}}
         <section
-            class="w-[140%] h-[52rem] md:h-[70rem] lg:h-[50rem] xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
+            class="w-[140%] h-[52rem] md:h-[65rem] lg:h-[45rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
             <div
                 class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
                 <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8">
                     {{ $master_web->contact_us_title }}
                 </h1>
                 <div class="flex flex-col  6 lg:flex-row w-full ">
-                    <div class=" transform overflow-visible lg:flex-1  pt-8 lg:py-24 lg:me-24 order-2 lg:order-1">
+                    <div class="transform overflow-visible lg:flex lg:flex-col lg:flex-1  lg:justify-center pt-8 lg:py-24 lg:mx-12 order-2 lg:order-1">
                         <div class="mb-4 flex">
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
@@ -434,7 +434,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="flex  items-center justify-center mt-16">
+                <div class="flex  items-center justify-center mt-16 lg:mt-8">
                     <p class="whitespace-nowrap">Follow Us: </p>
                     @foreach ($sosial_medias as $data)
                         <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
