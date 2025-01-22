@@ -6,10 +6,10 @@
 
         <title>{{ $title }}</title>
 
-        <meta name="description" content="Transformer Center" />
+        <meta name="description" content="Star Group" />
         <meta name="author" content="Star IT" />
-        <link rel="shortcut icon" href="/assets/images/Transformer-Favicon.png" type="image/x-icon" />
-        <link rel="icon" href="/assets/images/Transformer-Favicon.png" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/assets/images/starGroupLogo.png" type="image/x-icon" />
+        <link rel="icon" href="/assets/images/starGroupLogo.png" type="image/x-icon"/>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

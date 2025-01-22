@@ -7,7 +7,6 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -83,67 +82,6 @@
                         </li>
                     </ul>
                 </li>
-                <!-- <li class="nav-item">
-                    <a href="{{ route("programs.index") }}" class="nav-link {{ Request::is('secretgate/programs', 'secretgate/programs/*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-award"></i>
-                        <p>
-                            Programs
-                        </p>
-                    </a>
-                </li>  -->
-                <!-- <li class="nav-item">
-                    <a href="{{ route("posts.index") }}" class="nav-link {{ Request::is('secretgate/posts', 'secretgate/posts/*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-blog"></i>
-                        <p>
-                            Posts
-                        </p>
-                    </a>
-                </li>  -->
-                <!-- <li class="nav-item">
-                    <a 
-                        href="#"
-                        class="nav-link 
-                            {{ Request::is('secretgate/facility/categories', 'secretgate/facility/categories/*') 
-                            || Request::is('secretgate/facility/facilities', 'secretgate/facility/facilities/*') 
-                            ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-layer-group"></i>
-                        <p>
-                            Facilities Page
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{ route("categories.index") }}" class="nav-link {{ Request::is('secretgate/facility/categories/*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Category</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route("facilities.index") }}" class="nav-link {{ Request::is('secretgate/facility/facilities/*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Facility</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route("faqs.index") }}" class="nav-link {{ Request::is('secretgate/faqs', 'secretgate/faqs/*') ? 'active' : ''}}">
-                        <i class="nav-icon fa fa-question"></i>
-                        <p>
-                            FAQ
-                        </p>
-                    </a>
-                </li> 
-                <li class="nav-item">
-                    <a href="{{ route("galleries.index") }}" class="nav-link {{ Request::is('secretgate/galleries', 'secretgate/galleries/*') ? 'active' : ''}}">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Gallery Page
-                        </p>
-                    </a>
-                </li> -->
-
                 <li class="nav-item">
                     <a 
                         href="#"
@@ -171,25 +109,8 @@
                                 <p>Social Media</p>
                             </a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a href="{{ route("partners.index") }}" class="nav-link {{ Request::is('secretgate/partners*') ? 'active' : ''}}">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Partner</p>
-                            </a>
-                        </li> -->
                     </ul>
                 </li>
-                
-                <!-- @can('superadmin')
-                    <li class="nav-item">
-                        <a href="{{ route("admin-employees") }}" class="nav-link {{ Request::is('secretgate/employees', 'secretgate/employees/*') ? 'active' : ''}}">
-                            <i class="nav-icon fas fa-users"></i>
-                            <p>
-                                Employee
-                            </p>
-                        </a>
-                    </li>
-                @endcan -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
