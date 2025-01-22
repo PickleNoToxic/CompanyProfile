@@ -24,7 +24,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="/assets/images/starGroupLogo.png" alt="TC" height="120"
+            <img class="animation__shake" src="/assets/images/starGroupLogo.png" alt="Star Group" height="120"
                 width="120">
         </div>
 
