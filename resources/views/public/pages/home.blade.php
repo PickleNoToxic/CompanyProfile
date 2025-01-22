@@ -500,42 +500,23 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const description = document.getElementById("description");
-            const descriptionContent = @json($master_web->description);
-            description.innerHTML = descriptionContent;
 
-            const testimonialsDescription = document.getElementById("testimonials-description");
-            const testimonialsDescriptionContent = @json($master_web->testimonials_description);
-            testimonialsDescription.innerHTML = testimonialsDescriptionContent
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("mission-title");
+        function decorateTitle(titleId) {
+            const titleElement = document.getElementById(titleId);
             const text = titleElement.textContent.trim();
-
             const halfLength = Math.ceil(text.length / 2);
-
             const firstHalf = text.slice(0, halfLength);
             const secondHalf = text.slice(halfLength);
 
             titleElement.innerHTML =
                 `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("contact-us-title");
-            const text = titleElement.textContent.trim();
+        }
 
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
+        decorateTitle("mission-title");
+        decorateTitle("contact-us-title");
+        decorateTitle("directors-title");
+        decorateTitle("companies-title");
+    });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -549,34 +530,6 @@
 
             titleElement.innerHTML =
                 `${firstHalf}<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${secondHalf}</span>`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("directors-title");
-            const text = titleElement.textContent.trim();
-
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const titleElement = document.getElementById("companies-title");
-            const text = titleElement.textContent.trim();
-
-            const halfLength = Math.ceil(text.length / 2);
-
-            const firstHalf = text.slice(0, halfLength);
-            const secondHalf = text.slice(halfLength);
-
-            titleElement.innerHTML =
-                `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
         });
     </script>
     <script>

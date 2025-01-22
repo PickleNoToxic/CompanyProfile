@@ -466,7 +466,6 @@
     </div>
 @endsection
 
-
 @push('addon-script')
     <script src="/secretgate/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
     <script>
