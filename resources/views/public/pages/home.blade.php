@@ -182,19 +182,7 @@
                                     data-name="{{ $company->name }}" data-description="{{ $company->description }}"
                                     data-photo="{{ asset('storage/' . $company->photo_description) }}"
                                     data-url="{{ $company->url }}">
-                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
-                                </div>
-                                <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
-                                    data-name="{{ $company->name }}" data-description="{{ $company->description }}"
-                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
-                                    data-url="{{ $company->url }}">
-                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
-                                </div>
-                                <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
-                                    data-name="{{ $company->name }}" data-description="{{ $company->description }}"
-                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
-                                    data-url="{{ $company->url }}">
-                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
+                                    <img class="transition-transform duration-300 hover:scale-110" src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
                             @endforeach
                         </div>
@@ -331,7 +319,7 @@
                                     @for ($i = 0; $i < 20; $i++)
                                         @foreach ($works as $work)
                                             <div
-                                                class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12   swiper-companies-slide overflow-hidden flex flex-col text-center justify-center items-center">
+                                                class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12 swiper-works-slide overflow-hidden flex flex-col text-center justify-center items-center">
                                                 <div>
                                                     <img class="w-32 lg:w-44 h-32 lg:h-44 object-cover rounded-full"
                                                         src="{{ asset('storage/' . $work->photo) }}" alt="{{ $work->name}}">
@@ -465,19 +453,19 @@
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
                                 rel="noopener noreferrer">
-                                <img class="w-full" src="{{ asset('assets/images/contact_us_location.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_location.png') }}">
                             </a>
                             <p class="ml-8">{{ $contact->address }}</p>
                         </div>
                         <div class="mb-4 flex items-center">
                             <a class="flex-shrink-0 w-8" href="mailto:{{ $contact->email }}">
-                                <img class="w-full" src="{{ asset('assets/images/contact_us_gmail.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_gmail.png') }}">
                             </a>
                             <p class="ml-8">{{ $contact->email }}</p>
                         </div>
                         <div class="mb-4 flex items-center">
                             <a class="flex-shrink-0 w-8" href="https://wa.me/62{{ $contact->phone }}">
-                                <img class="w-full" src="{{ asset('assets/images/contact_us_wa.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_wa.png') }}">
                             </a>
                             <p class="ml-8 ">{{ $formatted_contact_phone }}</p>
                         </div>
@@ -496,10 +484,7 @@
                     <p class="whitespace-nowrap">Follow Us: </p>
                     @foreach ($sosial_medias as $data)
                         <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
-                            <img class="w-8 ml-4" src="{{ asset('storage/' . $data->photo) }}">
-                        </a>
-                        <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer">
-                            <img class="w-8 ml-4" src="{{ asset('storage/' . $data->photo) }}">
+                            <img class="w-8 ml-4 transition-transform duration-300 hover:scale-110" src="{{ asset('storage/' . $data->photo) }}">
                         </a>
                     @endforeach
                 </div>
