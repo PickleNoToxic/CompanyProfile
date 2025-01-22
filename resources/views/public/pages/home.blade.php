@@ -3,8 +3,11 @@
 @push('addon-style')
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
+        .no-scroll {
+            overflow: hidden;
+        }
+
         #mission-description ul {
             list-style-type: none; 
         }
@@ -77,6 +80,38 @@
 
 @section('container')
     <main class="relative overflow-clip">
+        <!-- Modal Overlay -->
+        <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none z-40"></div>
+        <!-- Main modal -->
+        <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative p-4 w-full max-w-2xl max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow">
+                    <!-- Modal header -->
+                    <div class="flex items-center justify-between p-4 md:px-5 rounded-t">
+                        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="p-4 md:px-5 space-y-4">
+                        <img id="modal-photo" class="w-full h-auto object-cover rounded" alt="Company Photo">
+                        <h3 id="modal-title" class="text-xl font-semibold"></h3>
+                        <p id="modal-description" class="text-justify leading-relaxed"></p>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-4 md:p-5 rounded-b">
+                        <a id="modal-link" href="" target="_blank" class="text-white w-full bg-[#2E3191] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Visit Site 
+                            <i class="fa fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         {{-- 1 --}}
         <section
             class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-8 pt-48 tracking-widest text-center font-poppins 
@@ -136,17 +171,29 @@
                     <div class="swiper-container swiper-companies-container mt-4 overflow-hidden">
                         <div class="swiper-wrapper swiper-compnaies-wrapper">
                             @foreach ($companies as $company)
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
-                                <div
-                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0">
-                                    <img class="" src="{{ asset('storage/' . $company->photo) }}">
+                                <div 
+                                    class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
+                                    data-name="{{ $company->name }}"
+                                    data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
                             @endforeach
                         </div>
@@ -283,46 +330,6 @@
                                     src="{{ asset('storage/' . $director->photo) }}" alt="">
                                 <p class="mt-4 text-center">{{ $director->name }}</p>
                             </div>
-                            {{-- <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                        <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                        <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                                                <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                                                <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                                                <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                                                <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div>
-                                                <div class="swiper-slide flex-shrink-0">
-                            <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                src="{{ asset('storage/' . $director->photo) }}" alt="">
-                            <p class="mt-4 text-center">{{ $director->name }}</p>
-                        </div> --}}
                         @endforeach
                     </div>
                 </div>
@@ -450,6 +457,48 @@
 @endsection
 @push('addon-script')
     <script>
+        const body = document.body;
+        const overlay = document.getElementById("modal-overlay");
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".swiper-companies-slide");
+
+        const modal = document.getElementById("default-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalPhoto = document.getElementById("modal-photo");
+        const modalDescription = document.getElementById("modal-description");
+        const modalLink = document.getElementById("modal-link");
+
+        slides.forEach(slide => {
+            slide.addEventListener("click", () => {
+                const name = slide.dataset.name;
+                const description = slide.dataset.description;
+                const photo = slide.dataset.photo;
+                const url = slide.dataset.url;
+
+                modalTitle.textContent = name;
+                modalPhoto.src = photo;
+                modalDescription.innerHTML = description;
+                modalLink.href = url;
+
+                modal.classList.remove("hidden");
+                body.classList.add("no-scroll");
+                overlay.classList.add("opacity-100");
+                overlay.classList.remove("pointer-events-none");
+            });
+        });
+
+        document.querySelectorAll("[data-modal-hide]").forEach(button => {
+            button.addEventListener("click", () => {
+                modal.classList.add("hidden");
+                body.classList.remove("no-scroll");
+                overlay.classList.remove("opacity-100");
+                overlay.classList.add("pointer-events-none");
+            });
+        });
+    });
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const description = document.getElementById("description");
             const descriptionContent = @json($master_web->description);
@@ -537,7 +586,6 @@
 
         });
 
-
         const swiperClients = new Swiper('.swiper-clients-container', {
             slidesPerView: 'auto',
             spaceBetween: 40,
@@ -550,8 +598,6 @@
                 },
             },
         })
-
-
 
         const swiperTestimonials = new Swiper('.swiper-testimonials-container', {
             slidesPerView: 1,
