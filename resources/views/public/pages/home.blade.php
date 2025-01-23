@@ -173,7 +173,7 @@
 
         {{-- 2 --}}
         <section
-            class="w-[140%] h-[60rem] md:h-[50rem] lg:h-[40rem] -mt-6 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-white transform -rotate-6 -ms-8 relative z-10">
+            class="w-[140%] h-[65rem] md:h-[50rem] lg:h-[40rem] -mt-6 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-white transform -rotate-6 -ms-8 relative z-10">
             <div
                 class="rotate-6 flex lg:flex-row flex-col ms-8  p-8 w-screen h-fit lg:h-full items-center justify-center lg:space-y-0 space-y-12 ">
                 <!-- Div Pertama -->
@@ -264,7 +264,7 @@
         <section
             class="w-[140%] h-[50rem] md:h-[55rem] lg:h-[50rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 lg">
             <div
-                class="relative w-screen h-full rotate-6 ms-16 md:ms-[4.7rem]  px-8 pt-8 pb-40 md:pt-28 md:pb-28 lg:pt-40 lg:pb-40  md:-top-24 lg:-top-32 flex flex-col justify-center items-center space-y-12">
+                class="relative w-screen h-full rotate-6 ms-16 md:ms-[4.7rem]  px-8 pt-8 pb-40 md:pt-28 md:pb-28 lg:pt-40 lg:pb-40  md:-top-24 lg:-top-32 flex flex-col justify-center items-center space-y-12 ">
                 <h1 id="value-title" class="text-[#2E3191] font-[600] text-3xl text-center" data-aos="fade-up"
                     data-aos-duration="1000">
                     {{ $master_web->value_title }}
@@ -302,7 +302,7 @@
         <section
             class="w-[140%] h-[16rem] md:h-[21rem] lg:h-[25rem] xl:h-[30rem] -ms-16 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem]  -rotate-6 overflow-clip relative z-30 border-t-[0.8rem] border-[#F8B500]">
             <!-- Background Div -->
-            <div class="absolute inset-0 -z-10 transform bg-[50%_32%] rotate-[10deg] 
+            <div class="absolute inset-0 -z-10 transform bg-top md:bg-center  
                 bg-cover  before:content-[''] before:absolute before:inset-0 before:bg-[#00094b8a] before:rounded-md
                 -mt-40 -ms-44"
                 style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
@@ -321,7 +321,7 @@
         <section
             class="w-[140%] h-[60rem] md:h-[68rem] lg:h-[65rem]  -mt-32
             transform rotate-6 -ms-16 relative z-40 overflow-clip">
-            <div class="absolute inset-0 -z-10 transform bg-[100%_50%] 
+            <div class="absolute inset-0 -z-10 transform bg-bottom
                 bg-cover  before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
                 -mt-96"
                 style="background-image: url('{{ asset('storage/' . $master_web->vision_mission_background) }}')">
@@ -344,18 +344,18 @@
                             <div class="relative swiper-container swiper-works-container w-full mx-auto lg:px-12"
                                 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                                 <div class="swiper-wrapper">
-                                        @foreach ($works as $index => $work)
-                                            <div class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12 swiper-works-slide overflow-hidden flex flex-col text-center justify-center items-center"
-                                                data-aos="zoom-in" data-aos-duration="600"
-                                                data-aos-delay="{{ $index * 100 }}">
-                                                <div>
-                                                    <img class="w-32 lg:w-44 h-32 lg:h-44 object-cover rounded-full"
-                                                        src="{{ asset('storage/' . $work->photo) }}"
-                                                        alt="{{ $work->name }}">
-                                                    <p class="mt-4 text-white max-w-32 lg:max-w-44">{{ $work->name }}</p>
-                                                </div>
+                                    @foreach ($works as $index => $work)
+                                        <div class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12 swiper-works-slide overflow-hidden flex flex-col text-center justify-center items-center"
+                                            data-aos="zoom-in" data-aos-duration="600"
+                                            data-aos-delay="{{ $index * 100 }}">
+                                            <div>
+                                                <img class="w-32 lg:w-44 h-32 lg:h-44 object-cover rounded-full"
+                                                    src="{{ asset('storage/' . $work->photo) }}"
+                                                    alt="{{ $work->name }}">
+                                                <p class="mt-4 text-white max-w-32 lg:max-w-44">{{ $work->name }}</p>
                                             </div>
-                                        @endforeach
+                                        </div>
+                                    @endforeach
                                 </div>
 
                             </div>
@@ -396,11 +396,11 @@
                 </h1>
                 <div class="swiper-container swiper-directors-container mt-16 mx-8" data-aos="fade-down"
                     data-aos-duration="1000" data-aos-delay="200">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper flex justify-evenly">'
                             @foreach ($directors as $index => $director)
                                 <div class="swiper-slide flex-shrink-0 ">
                                     <img class="w-40 h-40 rounded-full object-cover object-top shadow-[-6px_0px_0px_#F8B500]"
-                                        src="{{ asset('storage/' . $director->photo) }}" alt="" >
+                                        src="{{ asset('storage/' . $director->photo) }}" alt="">
                                     <p class="mt-4 text-center">{{ $director->name }}</p>
                                 </div>
                             @endforeach
@@ -431,34 +431,34 @@
                 <div class="relative flex items-center justify-center swiper-testimonials-container overflow-hidden w-full h-full"
                     data-aos="slide-right">
                     <div class="swiper-wrapper flex w-full h-full">
-                            @foreach ($testimonials as $testimonial)
-                                <div
-                                    class="swiper-slide flex-shrink-0 w-full flex flex-col items-center justify-center h-auto">
-                                    <div class="relative flex flex-col md:flex-row items-center ">
-                                        <!-- Profile image and design -->
-                                        <div class="relative">
-                                            <div
-                                                class="absolute -top-4 lg:-top-12 -left-3 lg:-left-10 w-20 lg:w-40 h-20 lg:h-40 bg-[#f8b600cb] rounded-full shadow-lg">
-                                            </div>
-                                            <div
-                                                class="absolute z-20 top-32 lg:top-36 left-28 lg:left-32 w-8 lg:w-16 h-8 lg:h-16 bg-[#f8b600cb] rounded-full shadow-md">
-                                            </div>
-                                            <div
-                                                class="relative z-10 w-40 lg:w-48 h-40 lg:h-48 bg-white rounded-full overflow-hidden shadow-xl">
-                                                <img src="{{ asset('storage/' . $testimonial->photo) }}" alt="Profile"
-                                                    class="w-full h-full object-cover" />
-                                            </div>
-                                        </div>
-                                        <!-- Testimonial details -->
+                        @foreach ($testimonials as $testimonial)
+                            <div
+                                class="swiper-slide flex-shrink-0 w-full flex flex-col items-center justify-center h-auto">
+                                <div class="relative flex flex-col md:flex-row items-center ">
+                                    <!-- Profile image and design -->
+                                    <div class="relative">
                                         <div
-                                            class="flex flex-col text-white w-full mt-6 max-w-[20rem]  md:max-w-[24rem]  lg:max-w-[32rem] xl:max-w-[36rem] text-center md:text-start md:ms-8  overflow-auto text-xs lg:text-base xl:text-xl">
-                                            <p class="text-[#F8B500] font-poppins font-bold">{{ $testimonial->name }}</p>
-                                            <p class="font-poppins mt-1">{{ $testimonial->company }}</p>
-                                            <p class="testimonial-description mt-4">{!! $testimonial->description !!}</p>
+                                            class="absolute -top-4 lg:-top-12 -left-3 lg:-left-10 w-20 lg:w-40 h-20 lg:h-40 bg-[#f8b600cb] rounded-full shadow-lg">
+                                        </div>
+                                        <div
+                                            class="absolute z-20 top-32 lg:top-36 left-28 lg:left-32 w-8 lg:w-16 h-8 lg:h-16 bg-[#f8b600cb] rounded-full shadow-md">
+                                        </div>
+                                        <div
+                                            class="relative z-10 w-40 lg:w-48 h-40 lg:h-48 bg-white rounded-full overflow-hidden shadow-xl">
+                                            <img src="{{ asset('storage/' . $testimonial->photo) }}" alt="Profile"
+                                                class="w-full h-full object-cover" />
                                         </div>
                                     </div>
+                                    <!-- Testimonial details -->
+                                    <div
+                                        class="flex flex-col text-white w-full mt-6 max-w-[20rem]  md:max-w-[24rem]  lg:max-w-[32rem] xl:max-w-[36rem] text-center md:text-start md:ms-8  overflow-auto text-xs lg:text-base xl:text-xl">
+                                        <p class="text-[#F8B500] font-poppins font-bold">{{ $testimonial->name }}</p>
+                                        <p class="font-poppins mt-1">{{ $testimonial->company }}</p>
+                                        <p class="testimonial-description mt-4">{!! $testimonial->description !!}</p>
+                                    </div>
                                 </div>
-                            @endforeach
+                            </div>
+                        @endforeach
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
