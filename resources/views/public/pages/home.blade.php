@@ -119,23 +119,26 @@
             </div>
         </div>
 
+
+
         {{-- 1 --}}
-        {{-- 1 OK --}}
-        <section
-            class="relative w-full h-auto ">
+        <section class="relative w-full h-auto ">
             <!-- Full-width image -->
             <img src="{{ asset('storage/' . $master_web->hero_background) }}" alt="Hero Background"
                 class="w-full h-auto object-contain" />
 
             <!-- Overlay content -->
-            <div class="absolute inset-0 flex lg:flex-col  items-start justify-center lg:justify-around lg:items-center pt-[8%] lg:pt-0 lg:pb-12 z-10">
-                <h1 class="text-[#2E3191] text-lg md:text-xl lg:text-3xl xl:text-4xl font-[600] tracking-widest text-center font-poppins" data-aos="fade-in" data-aos-duration="2000">
+            <div
+                class="absolute inset-0 flex lg:flex-col items-start justify-center lg:justify-around lg:items-center pt-[8%] lg:pt-0 lg:pb-12 z-20">
+                <h1 class="hidden md:block text-[#2E3191] text-xl lg:text-3xl xl:text-4xl font-[600] tracking-widest text-center font-poppins"
+                    data-aos="fade-in" data-aos-duration="2000">
                     {!! $master_web->title !!}
                 </h1>
-                <div
-                    class="hidden lg:block text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%]" data-aos="slide-up">
+                {{-- Our Client XL --}}
+                <div class="hidden lg:block text-center w-full rounded-xl bg-[#ffffffe5] py-4 overflow-hidden max-w-[90%]"
+                    data-aos="fade-up">
                     <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
-                    <div class="swiper-clients-container ms-8 mt-4 ">
+                    <div class="swiper-clients-container ms-8 mt-4">
                         <div class="swiper-wrapper">
                             @foreach ($clients as $client)
                                 <div class="swiper-slide flex-shrink-0">
@@ -149,35 +152,43 @@
             </div>
         </section>
 
-
-        {{-- 2 OK --}}
-        <section class="w-[140%] h-[40rem]  -mt-5 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-orange-500 transform -rotate-6 -ms-8 relative z-10">
-            <div
-                class="rotate-6 flex lg:flex-row flex-col  ms-8 p-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
-
-                <div
-                    class="block lg:hidden absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%]" data-aos="slide-up">
-                    <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
-                    <div class="swiper-clients-container ms-8 mt-4 ">
-                        <div class="swiper-wrapper">
-                            @foreach ($clients as $client)
-                                <div class="swiper-slide flex-shrink-0">
-                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
-                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
-                                </div>
-                            @endforeach
-                        </div>
+        {{-- Our Client/MD/SM --}}
+        <div class=" w-full block lg:hidden absolute translate-y-12 md:-translate-y-40 text-center h-auto z-50   ">
+            <div class="max-w-[90%] mx-auto bg-[#ffffffe5] rounded-xl py-4 shadow-[3px_3px_3px_3px_rgba(0,0,0,0.1)]"
+                data-aos="fade-up">
+                <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
+                <div class="swiper-clients-container ms-8 mt-4 overflow-clip">
+                    <div class="swiper-wrapper">
+                        @foreach ($clients as $client)
+                            <div class="swiper-slide flex-shrink-0">
+                                <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                    src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+            </div>
 
+        </div>
 
+        {{-- 2 --}}
+        <section
+            class="w-[140%] h-[60rem] md:h-[50rem] lg:h-[40rem] -mt-6 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-white transform -rotate-6 -ms-8 relative z-10">
+            <div
+                class="rotate-6 flex lg:flex-row flex-col ms-8  p-8 w-screen h-fit lg:h-full items-center justify-center lg:space-y-0 space-y-12 ">
                 <!-- Div Pertama -->
-                <div class="w-full lg:w-[50%] lg:space-y-0 space-y-12 flex flex-col lg:flex-row" data-aos="slide-right">
+                <div class="w-full mt-40 md:mt-0 pt-12 md:pt-0 lg:w-[50%] lg:space-y-0 space-y-12  flex flex-col lg:flex-row lg:me-12"
+                    data-aos="slide-right">
+                    <h1 class=" capitalize block md:hidden text-[#2E3191] text-xl lg:text-3xl xl:text-4xl font-[600] tracking-widest text-center font-poppins"
+                        data-aos="fade-in" data-aos-duration="2000">
+                        {!! $master_web->title !!}
+                    </h1>
                     <div class="flex flex-shrink-0 justify-center items-center">
                         <img class="h-56" src="{{ asset('storage/' . $master_web->company_icon) }}">
                     </div>
-                    <div class="flex justify-center  items-center ">
-                        <p id="description" class="max-w-96 font-poppins text-center lg:text-start"> </p>
+                    <div class="flex justify-center items-center">
+                        <p id="description" class="max-w-96 font-poppins text-center lg:text-start text-base xl:text-lg">
+                        </p>
                     </div>
                 </div>
                 <!-- Div Kedua -->
@@ -185,14 +196,14 @@
                     <h1 id="companies-title" class="text-[#2E3191] font-[600] text-center lg:text-start text-3xl mb-8">
                         {{ $master_web->companies_title }}
                     </h1>
-                    <div class="swiper-container swiper-companies-container mt-4 overflow-hidden ">
+                    <div class="swiper-container swiper-companies-container mt-4 overflow-hidden">
                         <div class="swiper-wrapper">
                             @foreach ($companies as $company)
-                                <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer "
+                                <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
                                     data-name="{{ $company->name }}" data-description="{{ $company->description }}"
                                     data-photo="{{ asset('storage/' . $company->photo_description) }}"
                                     data-url="{{ $company->url }}">
-                                    <img class="transition-transform duration-300 hover:scale-110 "
+                                    <img class="transition-transform duration-300 hover:scale-110"
                                         src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
                             @endforeach
@@ -202,12 +213,13 @@
             </div>
         </section>
 
+
         {{-- bar1 OK --}}
         <div class="w-[140%] h-[20rem] bg-slate-200 transform rotate-6 relative -ms-12 mt-12 z-20"></div>
 
         {{-- 3 --}}
         <section
-            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] 2xl:h-[75rem] -ms-[4.5rem] s:-ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[23rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
+            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] 2xl:h-[75rem] -ms-[4.5rem] s:-ms-20 -mt-[20rem] md:-mt-[23rem] lg:-mt-[23rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
             <!-- Background Div -->
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%]
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
@@ -218,16 +230,18 @@
             <!-- Content -->
             <div
                 class="relative w-screen h-full ms-[4.5rem] s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
-                <h1
-                    class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed"
+                    data-aos="fade-up" data-aos-duration="1000">
                     {{ $master_web->vision_mission_title }}
                 </h1>
                 <div
                     class="flex flex-col md:flex-row w-full py-8 md:py-16 lg:py-32 items-center md:items-start justify-between space-y-8 md:space-y-0 md:space-x-8">
-                    <div class="w-full md:w-[50%] flex justify-center" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="w-full md:w-[50%] flex justify-center" data-aos="fade-right" data-aos-duration="1200"
+                        data-aos-delay="200">
                         <img src="{{ asset('storage/' . $master_web->mission_photo) }}" class="rounded-lg">
                     </div>
-                    <div class="w-full md:w-[50%] flex flex-col justify-center md:justify-start" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="400">
+                    <div class="w-full md:w-[50%] flex flex-col justify-center md:justify-start" data-aos="fade-left"
+                        data-aos-duration="1200" data-aos-delay="400">
                         <h1 id="mission-title" class="text-white font-[600] text-3xl text-start">
                             {{ $master_web->mission_title }}
                         </h1>
@@ -251,13 +265,14 @@
             class="w-[140%] h-[50rem] md:h-[55rem] lg:h-[50rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 lg">
             <div
                 class="relative w-screen h-full rotate-6 ms-16 md:ms-[4.7rem]  px-8 pt-8 pb-40 md:pt-28 md:pb-28 lg:pt-40 lg:pb-40  md:-top-24 lg:-top-32 flex flex-col justify-center items-center space-y-12">
-                <h1 id="value-title" class="text-[#2E3191] font-[600] text-3xl text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h1 id="value-title" class="text-[#2E3191] font-[600] text-3xl text-center" data-aos="fade-up"
+                    data-aos-duration="1000">
                     {{ $master_web->value_title }}
                 </h1>
                 <div class="flex flex-row space-x-4 items-center">
                     @foreach ($values as $index => $value)
-                        <h1
-                            class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ $index * 100 }}">
+                        <h1 class="bg-[#2E3191] text-[#FFCA05] w-16 h-16 flex justify-center items-center rounded-full text-2xl font-bold"
+                            data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ $index * 100 }}">
                             {{ $value->initial }}</h1>
                     @endforeach
                 </div>
@@ -266,7 +281,8 @@
                 <div class="swiper-values-container w-full" data-aos="fade-up" data-aos-duration="1200">
                     <div class="swiper-wrapper flex flex-row lg:justify-center">
                         @foreach ($values as $index => $value)
-                            <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="{{ $index * 200 }}">
+                            <div class="swiper-slide flex flex-col max-w-72 px-4 py-2 bg-[#F0F1FA] py-8 rounded-xl text-center"
+                                data-aos="fade-right" data-aos-duration="1000" data-aos-delay="{{ $index * 200 }}">
                                 <h1 class="text-[#2E3191] font-bold mb-8">{{ $value->name }}</h1>
                                 <p>{!! $value->description !!}</p>
                             </div>
@@ -295,8 +311,9 @@
             <!-- Content -->
             <div
                 class="relative w-screen h-full transform ms-[4.5rem] rotate-6 -top-16 md:-top-20 xl:-top-[5.5rem] flex items-center justify-center px-8 py-20 md:py-28 lg:py-36  xl:py-40 ">
-                <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl text-center leading-relaxed" data-aos="fade-up" data-aos-duration="1000">
-                    {{ $master_web->motto }} 
+                <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl text-center leading-relaxed"
+                    data-aos="fade-up" data-aos-duration="1000">
+                    {{ $master_web->motto }}
                 </h1>
             </div>
         </section>
@@ -313,37 +330,39 @@
                 class="relative w-screen h-full transform -rotate-6 ms-16 px-4 md:px-8 pt-24 pb-64 -top-20  overflow-visible flex items-center justify-center z-20">
                 <div class="flex flex-col w-full space-y-8 justify-between">
                     <div class="flex flex-col lg:max-w-[50%]">
-                        <h1 id="works-title" class="text-white font-[600] text-3xl text-start mb-8" data-aos="fade-down" data-aos-duration="800">
+                        <h1 id="works-title" class="text-white font-[600] text-3xl text-start mb-8" data-aos="fade-down"
+                            data-aos-duration="800">
                             {{ $master_web->works_title }}
                         </h1>
-
-                        <p id="works-description"
-                            class="font-poppins  text-white text-xs  lg:text-base xl:text-xl" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <p id="works-description" class="font-poppins  text-white text-xs  lg:text-base xl:text-xl"
+                            data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                         </p>
                     </div>
 
                     <div class="flex flex-col lg:flex-row justify-between flex-grow space-y-8 ">
                         <div class="flex lg:w-3/5 lg:me-32 overflow-clip ">
-                            <div class="relative swiper-container swiper-works-container w-full mx-auto lg:px-12" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                            <div class="relative swiper-container swiper-works-container w-full mx-auto lg:px-12"
+                                data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                                 <div class="swiper-wrapper">
-                                    @for ($i = 0; $i < 20; $i++)
                                         @foreach ($works as $index => $work)
-                                            <div
-                                                class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12 swiper-works-slide overflow-hidden flex flex-col text-center justify-center items-center" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="{{ $index * 100 }}">
+                                            <div class="swiper-slide w-fit h-fit !mt-6 lg:!mt-12 swiper-works-slide overflow-hidden flex flex-col text-center justify-center items-center"
+                                                data-aos="zoom-in" data-aos-duration="600"
+                                                data-aos-delay="{{ $index * 100 }}">
                                                 <div>
                                                     <img class="w-32 lg:w-44 h-32 lg:h-44 object-cover rounded-full"
-                                                        src="{{ asset('storage/' . $work->photo) }}" alt="{{ $work->name}}">
-                                                    <p class="mt-4 text-white">{{ $work->name }}</p>
+                                                        src="{{ asset('storage/' . $work->photo) }}"
+                                                        alt="{{ $work->name }}">
+                                                    <p class="mt-4 text-white max-w-32 lg:max-w-44">{{ $work->name }}</p>
                                                 </div>
                                             </div>
                                         @endforeach
-                                    @endfor
                                 </div>
 
                             </div>
                         </div>
 
-                        <div class=" flex lg:w-2/5 justify-evenly items-center" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
+                        <div class=" flex lg:w-2/5 justify-evenly items-center" data-aos="fade-right"
+                            data-aos-duration="1000" data-aos-delay="600">
                             <div class="flex flex-col w-fit  items-center justify-center text-center">
                                 <img src="{{ asset('storage/' . $master_web->projects_icon) }}" alt="Projects"
                                     class="w-16 mb-8 lg:w-24 h-auto">
@@ -371,20 +390,20 @@
         <section
             class="w-[140%] -ms-16 h-[32rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
             <div class="relative w-screen h-full rotate-6 py-16 ms-[4rem] px-8">
-                <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8" data-aos="fade-down" data-aos-duration="800">
+                <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8" data-aos="fade-down"
+                    data-aos-duration="800">
                     {{ $master_web->directors_title }}
                 </h1>
-                <div class="swiper-container swiper-directors-container mt-16 mx-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="swiper-container swiper-directors-container mt-16 mx-8" data-aos="fade-down"
+                    data-aos-duration="1000" data-aos-delay="200">
                     <div class="swiper-wrapper">
-                        @for ($i = 0; $i < 20; $i++)
-                            @foreach ($directors as $director)
-                                <div class="swiper-slide flex-shrink-0">
-                                    <img class="w-40 h-40 rounded-full shadow-[-6px_0px_0px_#F8B500]"
-                                        src="{{ asset('storage/' . $director->photo) }}" alt="">
+                            @foreach ($directors as $index => $director)
+                                <div class="swiper-slide flex-shrink-0 ">
+                                    <img class="w-40 h-40 rounded-full object-cover object-top shadow-[-6px_0px_0px_#F8B500]"
+                                        src="{{ asset('storage/' . $director->photo) }}" alt="" >
                                     <p class="mt-4 text-center">{{ $director->name }}</p>
                                 </div>
                             @endforeach
-                        @endfor
                     </div>
                 </div>
             </div>
@@ -409,10 +428,9 @@
                         </p>
                     </div>
                 </div>
-                <div
-                    class="relative flex items-center justify-center swiper-testimonials-container overflow-hidden w-full h-full" data-aos="slide-right">
+                <div class="relative flex items-center justify-center swiper-testimonials-container overflow-hidden w-full h-full"
+                    data-aos="slide-right">
                     <div class="swiper-wrapper flex w-full h-full">
-                        @for ($index = 0; $index < 6; $index++)
                             @foreach ($testimonials as $testimonial)
                                 <div
                                     class="swiper-slide flex-shrink-0 w-full flex flex-col items-center justify-center h-auto">
@@ -441,7 +459,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                        @endfor
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -459,12 +476,13 @@
             class="w-[140%] h-[52rem] md:h-[65rem] lg:h-[45rem] xl:h-[55rem] 2xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
             <div
                 class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
-                <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8" data-aos="fade-down" data-aos-duration="800">
+                <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8"
+                    data-aos="fade-down" data-aos-duration="800">
                     {{ $master_web->contact_us_title }}
                 </h1>
                 <div class="flex flex-col  6 lg:flex-row w-full ">
-                    <div
-                        class="transform overflow-visible lg:flex lg:flex-col lg:flex-1  lg:justify-center pt-8 lg:py-24 lg:mx-12 order-2 lg:order-1" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="transform overflow-visible lg:flex lg:flex-col lg:flex-1  lg:justify-center pt-8 lg:py-24 lg:mx-12 order-2 lg:order-1"
+                        data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                         <div class="mb-4 flex">
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
@@ -489,7 +507,8 @@
                             <p class="ml-8 ">{{ $formatted_contact_phone }}</p>
                         </div>
                     </div>
-                    <div class="lg:flex-[2]  overflow-hidden w-full rounded-3xl order-1 lg:order-2" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="lg:flex-[2]  overflow-hidden w-full rounded-3xl order-1 lg:order-2" data-aos="fade-right"
+                        data-aos-duration="1000" data-aos-delay="400">
                         @if ($contact->map)
                             <div class="relative w-full aspect-[16/9] overflow-hidden rounded-3xl">
                                 <iframe class="absolute top-0 left-0 w-full h-full" src="{{ $contact->map }}"
@@ -499,13 +518,16 @@
                         @endif
                     </div>
                 </div>
-                <div class="flex  items-center justify-center mt-16 lg:mt-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" data-aos-offset="100">
+                <div class="flex  items-center justify-center mt-16 lg:mt-8" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="200" data-aos-offset="100">
                     <p class="whitespace-nowrap">Follow Us: </p>
-                        @foreach ($sosial_medias as $index => $data)
-                            <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ 100 + $index * 100 }}" data-aos-offset="0">
-                                <img class="w-8 ml-4 transition-transform duration-300 hover:scale-110" src="{{ asset('storage/' . $data->photo) }}">
-                            </a>
-                        @endforeach
+                    @foreach ($sosial_medias as $index => $data)
+                        <a href="{{ $data->url }}" target="_blank" rel="noopener noreferrer" data-aos="fade-up"
+                            data-aos-duration="1000" data-aos-delay="{{ 100 + $index * 100 }}" data-aos-offset="0">
+                            <img class="w-8 ml-4 transition-transform duration-300 hover:scale-110"
+                                src="{{ asset('storage/' . $data->photo) }}">
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -760,7 +782,7 @@
     </script>
     <script>
         AOS.init({
-            once: true, 
+            once: true,
             offset: 100,
             duration: 1000,
         });
