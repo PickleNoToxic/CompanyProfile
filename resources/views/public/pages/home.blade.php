@@ -137,9 +137,9 @@
                 {{-- Our Client XL --}}
                 <div class="hidden lg:block text-center w-full rounded-xl bg-[#ffffffe5] py-4 overflow-hidden max-w-[90%]"
                     data-aos="fade-up">
-                    <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
-                    <div class="swiper-clients-container ms-8 mt-4">
-                        <div class="swiper-wrapper">
+                    <h1 class="text-base lg:text-xl  font-bold tracking-normal">Our Clients:</h1>
+                    <div class="swiper-clients-container mx-8 mt-4">
+                        <div class="swiper-wrapper flex justify-evenly">
                             @foreach ($clients as $client)
                                 <div class="swiper-slide flex-shrink-0">
                                     <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
@@ -151,7 +151,6 @@
                 </div>
             </div>
         </section>
-
         {{-- Our Client/MD/SM --}}
         <div class=" w-full block lg:hidden absolute translate-y-12 md:-translate-y-40 text-center h-auto z-50   ">
             <div class="max-w-[90%] mx-auto bg-[#ffffffe5] rounded-xl py-4 shadow-[3px_3px_3px_3px_rgba(0,0,0,0.1)]"
@@ -168,9 +167,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
         {{-- 2 --}}
         <section
             class="w-[140%] h-[65rem] md:h-[50rem] lg:h-[40rem] -mt-6 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-white transform -rotate-6 -ms-8 relative z-10">
@@ -718,7 +715,7 @@
                     spaceBetween: 100,
                 },
                 1540: {
-                    spaceBetween: 128,
+                    spaceBetween: 156,
                 },
             },
         })
