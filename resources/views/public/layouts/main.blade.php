@@ -27,7 +27,6 @@
         <!-- content -->
         @yield('container')
 
-        @include('public.includes.footer')
 
         {{-- script --}}
         @stack('prepend-script')

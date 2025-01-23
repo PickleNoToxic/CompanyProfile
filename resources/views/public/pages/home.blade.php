@@ -122,31 +122,55 @@
         {{-- 1 --}}
         {{-- 1 OK --}}
         <section
-            class="w-full h-[64rem] flex flex-col font-[600] justify-between text-3xl pb-64 px-8 pt-48 tracking-widest text-center font-poppins 
-             bg-cover bg-center transform z-0"
-            style="background-image: url('{{ asset('storage/' . $master_web->hero_background) }}')">
-            <h1 class="text-[#2E3191]" data-aos="fade-in" data-aos-duration="2000">{!! $master_web->title !!}</h1>
-            <div class="text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%] mx-auto" data-aos="slide-up">
-                <h1 class="text-base md:text-2xl tracking-normal">Our Clients:</h1>
-                <div class="swiper-clients-container ms-8 mt-4 ">
-                    <div class="swiper-wrapper">
-                        @for ($i = 0; $i < 10; $i++)
+            class="relative w-full h-auto ">
+            <!-- Full-width image -->
+            <img src="{{ asset('storage/' . $master_web->hero_background) }}" alt="Hero Background"
+                class="w-full h-auto object-contain" />
+
+            <!-- Overlay content -->
+            <div class="absolute inset-0 flex lg:flex-col  items-start justify-center lg:justify-around lg:items-center pt-[8%] lg:pt-0 lg:pb-12 z-10">
+                <h1 class="text-[#2E3191] text-lg md:text-xl lg:text-3xl xl:text-4xl font-[600] tracking-widest text-center font-poppins" data-aos="fade-in" data-aos-duration="2000">
+                    {!! $master_web->title !!}
+                </h1>
+                <div
+                    class="hidden lg:block text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%]" data-aos="slide-up">
+                    <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
+                    <div class="swiper-clients-container ms-8 mt-4 ">
+                        <div class="swiper-wrapper">
                             @foreach ($clients as $client)
                                 <div class="swiper-slide flex-shrink-0">
                                     <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
                                         src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
                                 </div>
                             @endforeach
-                        @endfor
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+
         {{-- 2 OK --}}
-        <section class="w-[140%] h-[40rem] -mt-32 bg-white transform -rotate-6 -ms-8 relative z-10">
+        <section class="w-[140%] h-[40rem]  -mt-5 md:-mt-16 lg:-mt-20 xl:-mt-36 bg-orange-500 transform -rotate-6 -ms-8 relative z-10">
             <div
                 class="rotate-6 flex lg:flex-row flex-col  ms-8 p-8  w-screen h-full items-center justify-center lg:space-y-0 space-y-12 space-x-0 lg:space-x-12">
+
+                <div
+                    class="block lg:hidden absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center w-full rounded-xl bg-[#ffffffb5] py-4 overflow-hidden max-w-[90%]" data-aos="slide-up">
+                    <h1 class="text-base font-bold tracking-normal">Our Clients:</h1>
+                    <div class="swiper-clients-container ms-8 mt-4 ">
+                        <div class="swiper-wrapper">
+                            @foreach ($clients as $client)
+                                <div class="swiper-slide flex-shrink-0">
+                                    <img class="h-[1.5rem] lg:h-[2rem] grayscale-[100%]"
+                                        src="{{ asset('storage/' . $client->photo) }}" alt="Client Photo">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- Div Pertama -->
                 <div class="w-full lg:w-[50%] lg:space-y-0 space-y-12 flex flex-col lg:flex-row" data-aos="slide-right">
                     <div class="flex flex-shrink-0 justify-center items-center">
@@ -161,18 +185,17 @@
                     <h1 id="companies-title" class="text-[#2E3191] font-[600] text-center lg:text-start text-3xl mb-8">
                         {{ $master_web->companies_title }}
                     </h1>
-                    <div class="swiper-container swiper-companies-container mt-4 overflow-hidden">
+                    <div class="swiper-container swiper-companies-container mt-4 overflow-hidden ">
                         <div class="swiper-wrapper">
-                            @for ($i = 0; $i < 10; $i++)
-                                @foreach ($companies as $company)
-                                    <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
-                                        data-name="{{ $company->name }}" data-description="{{ $company->description }}"
-                                        data-photo="{{ asset('storage/' . $company->photo_description) }}"
-                                        data-url="{{ $company->url }}">
-                                        <img class="transition-transform duration-300 hover:scale-110" src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
-                                    </div>
-                                @endforeach
-                            @endfor
+                            @foreach ($companies as $company)
+                                <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer "
+                                    data-name="{{ $company->name }}" data-description="{{ $company->description }}"
+                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
+                                    data-url="{{ $company->url }}">
+                                    <img class="transition-transform duration-300 hover:scale-110 "
+                                        src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -184,7 +207,7 @@
 
         {{-- 3 --}}
         <section
-            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] -ms-16 s:-ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[22rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
+            class="w-[140%] h-[60rem] s:h-[55rem] md:h-[45rem] lg:h-[60rem] xl:h-[65rem] 2xl:h-[75rem] -ms-[4.5rem] s:-ms-20 -mt-[20rem] md:-mt-[21rem] lg:-mt-[23rem] xl:-mt-[23.5rem] -rotate-6 overflow-clip relative z-30">
             <!-- Background Div -->
             <div class="absolute inset-0 -z-10 transform bg-[50%_13%]
                 bg-cover bg-center before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
@@ -194,7 +217,7 @@
 
             <!-- Content -->
             <div
-                class="relative w-screen h-full ms-16 s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
+                class="relative w-screen h-full ms-[4.5rem] s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
                 <h1
                     class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed" data-aos="fade-up" data-aos-duration="1000">
                     {{ $master_web->vision_mission_title }}
@@ -278,7 +301,8 @@
             </div>
         </section>
         {{-- gambar bawah --}}
-        <section class="w-[140%] h-[60rem] md:h-[68rem] lg:h-[65rem]  -mt-32
+        <section
+            class="w-[140%] h-[60rem] md:h-[68rem] lg:h-[65rem]  -mt-32
             transform rotate-6 -ms-16 relative z-40 overflow-clip">
             <div class="absolute inset-0 -z-10 transform bg-[100%_50%] 
                 bg-cover  before:content-[''] before:absolute before:inset-0 before:bg-[#00094bb8] before:rounded-md
@@ -315,32 +339,37 @@
                                         @endforeach
                                     @endfor
                                 </div>
+
                             </div>
                         </div>
 
                         <div class=" flex lg:w-2/5 justify-evenly items-center" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
                             <div class="flex flex-col w-fit  items-center justify-center text-center">
-                                <img src="{{ asset('storage/' . $master_web->projects_icon) }}"
-                                    alt="Projects" class="w-16 mb-8 lg:w-24 h-auto">
-                                <h1 class="w-fit text-white text-3xl font-bold">{{ $master_web->number_of_projects }}</h1>
+                                <img src="{{ asset('storage/' . $master_web->projects_icon) }}" alt="Projects"
+                                    class="w-16 mb-8 lg:w-24 h-auto">
+                                <h1 class="w-fit text-white text-3xl font-bold countProject"
+                                    data-count="{{ $master_web->number_of_projects }}">0</h1>
                                 <h1 class="w-fit text-white ">Project</h1>
                             </div>
                             <div class="flex flex-col w-fit  items-center justify-center text-center">
                                 <img src="{{ asset('storage/' . $master_web->satisfied_clients_icon) }}"
                                     alt="Satisfied Clients" class="w-16 mb-8 lg:w-24 h-auto">
-                                <h1 class="w-fit text-white text-3xl font-bold">{{ $master_web->number_of_satisfied_clients }}</h1>
+                                <h1 class="w-fit text-white text-3xl font-bold countClient"
+                                    data-count="{{ $master_web->number_of_satisfied_clients }}">
+                                    0
+                                </h1>
+
                                 <h1 class="w-fit text-white ">Satisfied Client</h1>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </section>
-
-
         {{-- 6 OK --}}
         <section
-            class="w-[140%] -ms-16 h-[28rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
+            class="w-[140%] -ms-16 h-[32rem] bg-white transform -mt-72 relative z-50 transform -rotate-6 border-b-[0.8rem] border-[#F8B500]">
             <div class="relative w-screen h-full rotate-6 py-16 ms-[4rem] px-8">
                 <h1 id="directors-title" class="text-[#2E3191] font-[600] text-3xl text-center mb-8" data-aos="fade-down" data-aos-duration="800">
                     {{ $master_web->directors_title }}
@@ -383,7 +412,7 @@
                 <div
                     class="relative flex items-center justify-center swiper-testimonials-container overflow-hidden w-full h-full" data-aos="slide-right">
                     <div class="swiper-wrapper flex w-full h-full">
-                        @for ($i = 0; $i < 7; $i++)
+                        @for ($index = 0; $index < 6; $index++)
                             @foreach ($testimonials as $testimonial)
                                 <div
                                     class="swiper-slide flex-shrink-0 w-full flex flex-col items-center justify-center h-auto">
@@ -427,7 +456,7 @@
 
         {{-- 8 --}}
         <section
-            class="w-[140%] h-[52rem] md:h-[65rem] lg:h-[45rem] xl:h-[55rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
+            class="w-[140%] h-[52rem] md:h-[65rem] lg:h-[45rem] xl:h-[55rem] 2xl:h-[65rem] -ms-16 transform -rotate-6 relative z-50 -mt-16 lg:-mt-0">
             <div
                 class="relative w-screen h-full rotate-6 ms-[4rem] px-8 py-28 flex flex-col mx-auto justify-center items-center mt-0">
                 <h1 id="contact-us-title" class=" text-[#2E3191] font-[600] text-3xl text-center mb-8" data-aos="fade-down" data-aos-duration="800">
@@ -440,19 +469,22 @@
                             <a class="flex-shrink-0 w-8"
                                 href="https://www.google.com/maps?q={{ urlencode($contact->address) }}" target="_blank"
                                 rel="noopener noreferrer">
-                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_location.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110"
+                                    src="{{ asset('assets/images/contact_us_location.png') }}">
                             </a>
                             <p class="ml-8">{{ $contact->address }}</p>
                         </div>
                         <div class="mb-4 flex items-center">
                             <a class="flex-shrink-0 w-8" href="mailto:{{ $contact->email }}">
-                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_gmail.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110"
+                                    src="{{ asset('assets/images/contact_us_gmail.png') }}">
                             </a>
                             <p class="ml-8">{{ $contact->email }}</p>
                         </div>
                         <div class="mb-4 flex items-center">
                             <a class="flex-shrink-0 w-8" href="https://wa.me/62{{ $contact->phone }}">
-                                <img class="w-full transition-transform duration-300 hover:scale-110" src="{{ asset('assets/images/contact_us_wa.png') }}">
+                                <img class="w-full transition-transform duration-300 hover:scale-110"
+                                    src="{{ asset('assets/images/contact_us_wa.png') }}">
                             </a>
                             <p class="ml-8 ">{{ $formatted_contact_phone }}</p>
                         </div>
@@ -477,10 +509,15 @@
                 </div>
             </div>
         </section>
-        {{-- bar5 --}}
         <div
-            class="w-[140%] h-[16rem] bg-slate-200 transform -rotate-6 relative -mb-[14.5rem] md:-mb-[12.5rem] lg:-mb-[11.5rem] xl:-mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20">
+            class="w-[140%] h-[16rem] bg-slate-200 transform -rotate-6 relative -mb-[14.5rem] md:-mb-[12.5rem] lg:-mb-[11.5rem] xl:-mb-[9.5rem] -mt-[4.5rem] -ms-12  z-20 flex justify-center">
         </div>
+        {{-- bar5 --}}
+        <h5
+            class="absolute bottom-5 left-1/2 whitespace-nowrap transform -translate-x-1/2 font-bold font-inter text-sm tracking-wider z-50">
+            Copyright &copy; {{ now()->year }} Star Group
+        </h5>
+
     </main>
 @endsection
 @push('addon-script')
@@ -525,6 +562,74 @@
                 });
             });
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.countProject');
+
+            const startCounter = (counter) => {
+                const target = +counter.getAttribute('data-count');
+                let current = 0;
+                const increment = Math.ceil(target / 500);
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = current > target ? target : current;
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        startCounter(counter);
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+
+            counters.forEach((counter) => observer.observe(counter));
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.countClient');
+
+            const startCounter = (counter) => {
+                const target = +counter.getAttribute('data-count');
+                let current = 0;
+                const increment = Math.ceil(target / 1000);
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.innerText = current > target ? target : current;
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+
+                updateCounter();
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        startCounter(counter);
+                        observer.unobserve(counter);
+                    }
+                });
+            });
+
+            counters.forEach((counter) => observer.observe(counter));
+        });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -554,13 +659,13 @@
                     `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
             }
 
-        decorateTitle("mission-title");
-        decorateTitle("contact-us-title");
-        decorateTitle("value-title");
-        decorateTitle("works-title");
-        decorateTitle("directors-title");
-        decorateTitle("companies-title");
-    });
+            decorateTitle("mission-title");
+            decorateTitle("contact-us-title");
+            decorateTitle("value-title");
+            decorateTitle("works-title");
+            decorateTitle("directors-title");
+            decorateTitle("companies-title");
+        });
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -637,7 +742,7 @@
             },
             breakpoints: {
                 500: {
-                    spaceBetween: 40,
+                    spaceBetween: 52,
                     grid: {
                         rows: 2,
                         fill: 'rows'

@@ -131,17 +131,17 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                                <label for="photo_background">New Photo Background (250x250)</label>
+                                                <label for="photo_description">New Photo Description (250x250)</label>
                                                 <div class="input-group">
                                                     <div class="custom-file">
-                                                        <input type="file" class="custom-file-input" id="photo_background" name="photo_background" accept='.png,.jpg,.jpeg'>
-                                                        <label class="custom-file-label" for="photo_background">Choose File</label>
+                                                        <input type="file" class="custom-file-input" id="photo_description" name="photo_description" accept='.png,.jpg,.jpeg'>
+                                                        <label class="custom-file-label" for="photo_description">Choose File</label>
                                                     </div>
                                                     <div class="input-group-append">
                                                         <span class="input-group-text">Upload</span>
                                                     </div>
                                                 </div>
-                                                @error('photo_background')
+                                                @error('photo_description')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
                                                     </div>
@@ -196,13 +196,11 @@
             const label = e.target.nextElementSibling;
             label.textContent = fileName;
         });
-
-        document.querySelector('#photo_background').addEventListener('change', function (e) {
+        document.querySelector('#photo_description').addEventListener('change', function (e) {
             const fileName = e.target.files[0]?.name || 'Choose File';
             const label = e.target.nextElementSibling;
             label.textContent = fileName;
         });
-        
         $(function () {
           bsCustomFileInput.init();
         });

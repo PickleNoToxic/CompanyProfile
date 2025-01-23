@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'motto' => 'UNITY FOR LOVE',
             'vision_mission_title' => 'TO BECOME THE BEST INTEGRATED BUSINESS COMPANY IN INDONESIA',
             'mission_title' => 'Our Mission',
-            'mission_description' => 'To be the best in the world.',
+            'mission_description' => '<ul><li>Empowered with an Active (Adaptive, Creative, Initiative) and Professional human capital that leads with love and fosters a culture of integrity</li><li>Produce valuable products and services in every business</li><li>Creating outstanding experience</li></ul>',
             'value_title' => 'Core Value',
             'works_title' => 'The Work',
             'works_description' => 'We offer a wide range of services to support the growth of your business.',
@@ -67,7 +67,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            ValueSeeder::class
+            ClientSeeder::class,
+            CompanySeeder::class,
+            DirectorSeeder::class,
+            SosialMediaSeeder::class,
+            TestimonialSeeder::class,
+            ValueSeeder::class,
+            WorkSeeder::class,
         ]);
     }
 }

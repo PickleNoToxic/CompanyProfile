@@ -50,7 +50,7 @@ class PublicController extends Controller
             "testimonials" => $testimonials,
             "contact" => $contact,
             "formatted_contact_phone" => $formatted_contact_phone,
-            "sosial_medias" => $sosial_medias
-        ]);
-    }
+            "sosial_medias" => $sosial_medias,
+            ]);
+            }
 }
