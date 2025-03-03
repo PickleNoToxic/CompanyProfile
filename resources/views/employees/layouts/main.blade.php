@@ -45,5 +45,4 @@
     @stack('addon-script')
 
 </body>
-
 </html>
