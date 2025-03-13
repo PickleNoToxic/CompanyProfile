@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
         MasterWeb::create([
             'title' => 'Your journey to success begins with STAR GROUP',
-            'description' => 'Is acompany group that is ready to grow to become the best in the world. Work closely with our team which is a big family of Binar Group.',
+            'description' => 'Is acompany group that is ready to grow to become the best in the world. Work closely with our team which is a big family of Star Group.',
             'companies_title' => 'Our Companies',
             'motto' => 'UNITY FOR LOVE',
             'vision_mission_title' => 'TO BECOME THE BEST INTEGRATED BUSINESS COMPANY IN INDONESIA',

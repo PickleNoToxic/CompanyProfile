@@ -4,8 +4,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyGalleryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\LinktreeController;
 use App\Http\Controllers\MasterWebController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SosialMediaController;
@@ -28,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(PublicController::class)->group(function () {
     Route::get('/', 'home')->name('home');
+    Route::get('/brosur', 'brosur')->name('brosur');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -68,4 +71,6 @@ Route::prefix('secretgate')
         Route::resource('/values', ValueController::class);
         Route::resource('/works', WorkController::class);
         Route::resource('/directors', DirectorController::class);
+        Route::resource('/company-galleries', CompanyGalleryController::class);
+        Route::resource('/linktrees', LinktreeController::class);
 });

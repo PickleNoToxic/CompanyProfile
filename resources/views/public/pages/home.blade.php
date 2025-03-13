@@ -103,12 +103,18 @@
                     </div>
                     <!-- Modal body -->
                     <div class="p-4 md:px-5 space-y-4">
-                        <img id="modal-photo" class="w-full h-auto object-cover rounded" alt="Company Photo">
+                        <img id="modal-photo" class="w-fit h-14 object-contain rounded justify-self-center" alt="Company Photo">
                         <h3 id="modal-title" class="text-xl font-semibold"></h3>
                         <p id="modal-description" class="text-justify leading-relaxed"></p>
                     </div>
                     <!-- Modal footer -->
-                    <div class="flex items-center p-4 md:p-5 rounded-b">
+                    <div class="flex flex-col items-center p-4 md:p-5 rounded-b">
+                        <div id="modal-galleries" class="flex flex-wrap justify-center items-center mb-5">
+                            {{-- <a id="modal-link" href="" target="_blank"
+                                class="text-white w-full bg-greenSecondary hover:bg-greenPrimary font-medium rounded-full text-sm px-7 py-2.5 text-center">
+                                Visit
+                            </a> --}}
+                        </div>
                         <a id="modal-link" href="" target="_blank"
                             class="text-white w-full bg-[#2E3191] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Visit
                             Site
@@ -198,8 +204,8 @@
                             @foreach ($companies as $company)
                                 <div class="swiper-slide swiper-companies-slide h-28 w-28 flex items-center object-contain flex-shrink-0 cursor-pointer"
                                     data-name="{{ $company->name }}" data-description="{{ $company->description }}"
-                                    data-photo="{{ asset('storage/' . $company->photo_description) }}"
-                                    data-url="{{ $company->url }}">
+                                    data-photo="{{ asset('storage/' . $company->photo) }}"
+                                    data-url="{{ $company->url }}" data-galleries="{{ $company->galleries }}">
                                     <img class="transition-transform duration-300 hover:scale-110"
                                         src="{{ asset('storage/' . $company->photo) }}" alt="{{ $company->name }}">
                                 </div>
@@ -226,7 +232,10 @@
 
             <!-- Content -->
             <div
-                class="relative w-screen h-full ms-[4.5rem] s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-start justify-center">
+                class="relative w-screen h-full ms-[4.5rem] s:ms-20 px-8 py-12 md:py-16 lg:py-24 transform rotate-6 overflow-visible flex flex-col items-center justify-center">
+                <h1 id="vision-title" class="text-white font-[600] text-3xl mb-3" data-aos="fade-up" data-aos-duration="1000">
+                    Our Vision
+                </h1>
                 <h1 class="text-[#F8B500] font-[600] tracking-widest text-xl md:text-3xl md:px-32 lg:px-64 text-center leading-relaxed"
                     data-aos="fade-up" data-aos-duration="1000">
                     {{ $master_web->vision_mission_title }}
@@ -552,12 +561,39 @@
             const modalPhoto = document.getElementById("modal-photo");
             const modalDescription = document.getElementById("modal-description");
             const modalLink = document.getElementById("modal-link");
+            const modalGalleries = document.getElementById("modal-galleries");
 
             slides.forEach(slide => {
                 slide.addEventListener("click", () => {
                     const name = slide.dataset.name;
                     const description = slide.dataset.description;
                     const photo = slide.dataset.photo;
+                    let galleries = slide.dataset.galleries;
+                    if (typeof galleries === "string") {
+                        try {
+                            galleries = JSON.parse(galleries);
+                        } catch (e) {
+                            console.error("Error parsing galleries:", e);
+                            galleries = [];
+                        }
+                    }
+
+                    modalGalleries.innerHTML = '';
+    
+                    if (galleries.length > 0) {
+                        galleries.forEach(gallery => {
+                            let slide = document.createElement('a');
+                            slide.classList.add('text-white', 'w-full', 'bg-greenSecondary', 'hover:bg-greenPrimary', 'font-medium', 'rounded-full', 'text-sm', 'px-7', 'py-2.5', 'text-center');
+                            slide.href = `/storage/${gallery.url}`;
+                            slide.target = "_blank"; 
+                            slide.rel = "noopener noreferrer"; 
+
+                            slide.innerText = gallery.title;
+
+                            modalGalleries.appendChild(slide);
+                        });
+                    }
+                    
                     const url = slide.dataset.url;
 
                     modalTitle.textContent = name;
@@ -678,6 +714,7 @@
                     `<span class="overline decorate decoration-[#F8B500] decoration-[6px] overline-offset-4">${firstHalf}</span>${secondHalf}`;
             }
 
+            decorateTitle("vision-title");
             decorateTitle("mission-title");
             decorateTitle("contact-us-title");
             decorateTitle("value-title");
@@ -703,6 +740,9 @@
     <script>
         const swiperDirectors = new Swiper('.swiper-directors-container', {
             slidesPerView: 'auto',
+            autoplay: {
+                delay: 3000,
+            },
             spaceBetween: 96,
         });
 
@@ -729,6 +769,9 @@
         const swiperTestimonials = new Swiper('.swiper-testimonials-container', {
             slidesPerView: 1,
             spaceBetween: 40,
+            autoplay: {
+                delay: 5000,
+            },
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true
@@ -739,6 +782,9 @@
         const swiperCompanies = new Swiper('.swiper-companies-container', {
             slidesPerView: 'auto',
             spaceBetween: 72,
+            autoplay: {
+                delay: 3000,
+            },
             grid: {
                 rows: 1,
             },
@@ -755,6 +801,9 @@
         const swiperWorks = new Swiper('.swiper-works-container', {
             slidesPerView: 'auto',
             spaceBetween: 20,
+            autoplay: {
+                delay: 3000,
+            },
             grid: {
                 rows: 1,
                 fill: 'rows'

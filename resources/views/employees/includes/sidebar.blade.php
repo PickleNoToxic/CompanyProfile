@@ -23,12 +23,12 @@
                     <a 
                         href="#"
                         class="nav-link 
-                            {{ Request::is('secretgate/testimonials', 'secretgate/testimonials/*') 
-                            || Request::is('secretgate/heroes', 'secretgate/heroes/*') 
-                            || Request::is('secretgate/about', 'secretgate/about/*') 
-                            || Request::is('secretgate/value', 'secretgate/value/*') 
-                            || Request::is('secretgate/statistiks', 'secretgate/statistiks/*') 
-                            || Request::is('secretgate/benefits', 'secretgate/benefits/*') 
+                            {{ Request::is('secretgate/clients', 'secretgate/clients/*') 
+                            || Request::is('secretgate/companies', 'secretgate/companies/*') 
+                            || Request::is('secretgate/values', 'secretgate/values/*') 
+                            || Request::is('secretgate/works', 'secretgate/works/*') 
+                            || Request::is('secretgate/directors', 'secretgate/directors/*') 
+                            || Request::is('secretgate/testimonials', 'secretgate/testimonials/*') 
                             || Request::is('secretgate/others', 'secretgate/others/*') 
                             ? 'active' : ''}}">
                         <i class="nav-icon fa fa-home"></i>
@@ -87,8 +87,7 @@
                         href="#"
                         class="nav-link 
                             {{ Request::is('secretgate/contacts', 'secretgate/contacts/*') 
-                            || Request::is('secretgate/sosmeds ', 'secretgate/sosmeds/*') 
-                            || Request::is('secretgate/partners ', 'secretgate/partners/*') 
+                            || Request::is('secretgate/sosmeds', 'secretgate/sosmeds/*') 
                             ? 'active' : ''}}">
                         <i class="nav-icon fa fa-phone"></i>
                         <p>
@@ -110,6 +109,22 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a href={{ route("company-galleries.index") }} class="nav-link {{ Request::is('secretgate/company-galleries*') ? 'active' : ''}}">
+                        <i class="nav-icon fa fa-building"></i>
+                        <p>
+                            Company Galleries
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href={{ route("linktrees.index") }} class="nav-link {{ Request::is('secretgate/linktrees*') ? 'active' : ''}}">
+                        <i class="nav-icon fas fa-bars"></i>
+                        <p>
+                            Linktree
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>

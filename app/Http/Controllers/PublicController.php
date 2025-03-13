@@ -8,6 +8,7 @@ use App\Models\Company;
 use App\Models\Contact;
 use App\Models\Director;
 use App\Models\Hero;
+use App\Models\Linktree;
 use App\Models\MasterWeb;
 use App\Models\OurGallery;
 use App\Models\Program;
@@ -51,6 +52,23 @@ class PublicController extends Controller
             "contact" => $contact,
             "formatted_contact_phone" => $formatted_contact_phone,
             "sosial_medias" => $sosial_medias,
-            ]);
-            }
+        ]);
+    }
+
+    public function brosur()
+    {
+        $master_web = MasterWeb::first();
+        $linktrees = Linktree::get();
+        $companies = Company::where('is_active', 1)->get();
+        $values = Value::where('is_active', 1)->get();
+        
+
+        return view('public.pages.brosur',[
+            "title" => "Marketing Tools | Star Group",
+            "master_web" => $master_web,
+            "linktrees" => $linktrees,
+            "companies" => $companies,
+            "values" => $values,
+        ]);
+    }
 }
