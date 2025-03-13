@@ -402,7 +402,7 @@
                 </h1>
                 <div class="swiper-container swiper-directors-container mt-16 mx-8" data-aos="fade-down"
                     data-aos-duration="1000" data-aos-delay="200">
-                    <div class="swiper-wrapper flex justify-evenly">'
+                    <div class="swiper-wrapper flex justify-evenly">
                             @foreach ($directors as $index => $director)
                                 <div class="swiper-slide flex-shrink-0 ">
                                     <img class="w-40 h-40 rounded-full object-cover object-top shadow-[-6px_0px_0px_#F8B500]"
